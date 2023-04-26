@@ -1,25 +1,4 @@
-<style>
-.text-center {
-    text-align: center;
-}
 
-.mt {
-    margin-top: 20px;
-}
-
-.img {
-    margin: auto; 
-    width: 75%;
-}
-
-a {
-    color: #d90368;
-}
-
-a:hover {
-    color: #f75c03;
-}
-</style>
 <div class="img">
     <img src="../images/github/Capa - Sinta & Escreva.png" alt="Logo do projeto">
 </div>
