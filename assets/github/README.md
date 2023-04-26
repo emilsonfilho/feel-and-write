@@ -62,8 +62,8 @@ Você encontrará uma aplicação prática desse projeto no seguinte link: [emil
 
 <h2 class="mt" id="author">🍁 Autor</h2>
 
-<div style="display: flex; flex-direction: column; text-align:center; width: 150px; gap: 10px;">
-<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/92304613?s=96&v=4">
+<div style="display: flex; flex-direction: column; text-align:center; gap: 10px;">
+<img style="border-radius: 100%; width: 150px" src="https://avatars.githubusercontent.com/u/92304613?s=96&v=4">
 
 <strong>[EmilsonFilho](https://github.com/emilsonfilho)</strong>
 </div>
