@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Nunito+Sans:wght@900&family=Ubuntu:wght@400;700&display=swap');
+
+:root {
+  --cinza: #f7f7f7;
+  --burgundy: #820263;
+  --pink-shock: #d90368;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: var(--cinza);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.container img {
+  width: 200px;
+}
+
+.title-borgonha {
+  color: var(--burgundy);
+}
+
+.title-pink {
+  color: var(--pink-shock);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+}
+
+.login-form {
+  max-width: 300px;
+  width: 100%;
+}
+
+.form-control {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-control label {
+  padding-left: 15px;
+  color: var(--burgundy);
+}
+
+.form-control input {
+  background-color: rgba(217, 3, 104, 0.2);
+  padding: 10px 10px 10px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+.form-control input:focus {
+  background-color: var(--burgundy);
+  color: #fff;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #820263;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #6c015b;
+}
+
+p, a {
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--burgundy);
+}
+
+a {
+  text-decoration: none;
+  transition-duration: 0.7s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
