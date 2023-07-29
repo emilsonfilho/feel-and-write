@@ -1,0 +1,9 @@
+section.form input[type="number"] {
+  padding: 13px 25px;
+  border-radius: 25px;
+  outline: none;
+}
+
+section.form input[type="button"] {
+  padding: 10px 15px;
+}

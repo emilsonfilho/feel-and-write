@@ -1,0 +1,12 @@
+h1 {
+  margin: 32px 0px;
+  font-size: 2.2em;
+}
+
+input:disabled {
+  background-color:rgb(203,203,203);
+}
+
+input[type="button"] {
+  margin-top: 32px;
+}

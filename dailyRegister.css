@@ -1,0 +1,53 @@
+@import './initialConfig.css';
+@import './fontsUrl.css';
+
+body {
+  background-color: #f7f7f7;
+}
+
+body > p {
+  text-align: center;
+  border-bottom: 2px solid var(--pink-shock); 
+  font-weight: 300;
+  padding: 35px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 23px 0px;
+}
+
+main > section {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.left {
+  margin-right: auto;
+  
+  padding: 35px 35px 35px 12px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.right {
+  margin-left: auto;
+  
+  padding: 35px 12px 35px 35px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+section p {
+  text-align: justify;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

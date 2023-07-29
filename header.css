@@ -1,0 +1,19 @@
+header {
+  background-color: #291720;
+  display: flex;
+  align-items: center;
+  padding: 15px 35px;
+  gap: 20px;
+  width: 100vw;
+}
+
+header img {
+  width: 80px;
+}
+
+header h1 {
+  font-size: 2em;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #fff;
+  font-weight: 900;
+}

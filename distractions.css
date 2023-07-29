@@ -1,0 +1,76 @@
+body {
+  background-color: #f7f7f7;
+}
+
+aside {
+  background-color: var(--espresso-brown);
+  color: #f7f7f7;
+  margin: 25px;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+  font-weight: 600;
+}
+
+main {
+  padding: 25px 60px 150px 60px;
+}
+
+main form input[type="text"] {
+  width: 70%;
+  font-size: 1.1em;
+  padding-left: 8px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--pink-shock);
+  background-color: transparent;
+  margin-right: 18px;
+}
+
+main form input[type="text"]::placeholder {
+  color:rgb(173,173,173);
+}
+
+main form input[type="button"] {
+  padding: 10px 15px;
+  font-size: .9em;
+}
+
+ul {
+  list-style-type: none;
+  margin: 20px 0px;
+}
+
+ul div {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+}
+
+ul div li {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+ul div input {
+  background-color: transparent;
+  color: var(--burnt-orange);
+  border: none;
+}
+
+/* Estilos para smartphones */
+@media (max-width: 480px) {
+  aside {
+    padding: 20px;
+  }
+
+  main {
+    padding: 15px 20px 150px 20px;
+  }
+
+  main form input[type="text"] {
+    font-size: 1em;
+  }
+}
