@@ -1,4 +1,4 @@
-import { Base } from '../Base.js'
+import { Base } from './Base.js'
 
 export class DayToDay extends Base {
   constructor(userId, text, time, date) {
