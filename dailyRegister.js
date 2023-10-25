@@ -4,7 +4,7 @@ import { findAllObjectsByProperties, setData } from './research.js'
 import { addEventToElements, selectElement, createElement, setAttributes } from './addEvent.js'
 import { getFullDate, sortByField, formatDate } from './date.js'
 import { getFormattedTime, formatTime } from './time.js'
-import { DayToDay } from './Class_DayToDay.js'
+import { DayToDay } from './classes/DayToDay.js'
 import { renderElements } from './dom.js'
 
 validateUser()

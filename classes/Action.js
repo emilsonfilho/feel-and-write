@@ -1,6 +1,6 @@
-import { BaseClass } from './BaseClass.js'
+import { Base } from './Base.js'
 
-export class Action extends BaseClass {
+export class Action extends Base {
   _getScheduleId(type) {
     let scheduleId = 0
   

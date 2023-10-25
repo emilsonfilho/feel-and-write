@@ -1,6 +1,6 @@
 import { addEventToElements, selectElement, createElement, setAttributes } from './addEvent.js'
 import { validateUser } from './validate.js'
-import { Action } from './Class_Action.js'
+import { Action } from './classes/Action.js'
 import { getSessionData, getLocalData } from './storage.js'
 import { setData, findAllObjectsByProperties, removeProperty } from './research.js'
 import { renderElements } from './dom.js'

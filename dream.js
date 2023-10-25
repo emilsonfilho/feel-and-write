@@ -1,7 +1,7 @@
 import { addEventToElements, selectElement, createElement, changeState } from './addEvent.js'
 import { getSessionData, getLocalData } from './storage.js'
 import { setData, findAllObjectsByProperties } from './research.js'
-import { Dream } from './Class_Dream.js'
+import { Dream } from './classes/Dream.js'
 import { getFormattedTime, formatTime } from './time.js'
 import { getFullDate, formatDate, sortByField } from './date.js'
 import { renderElements } from './dom.js'

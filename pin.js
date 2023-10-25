@@ -1,5 +1,5 @@
 import { validatePin } from './validate.js'
-import { User } from './Class_User.js'
+import { User } from './classes/User.js'
 import initialDatabase from './initialDatabaseStructure.js'
 import { navigate } from './navigation.js'
 import { getSessionData, setSessionData, removeSessionData, getLocalData, setLocalData } from './storage.js'

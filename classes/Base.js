@@ -1,6 +1,6 @@
-import { getLocalData } from './storage.js'
+import { getLocalData } from '../storage.js'
 
-export class BaseClass {
+export class Base {
   _getUniqueId(dataName) {
     const database = JSON.parse(getLocalData('database'));
     return database[dataName].length + 1;

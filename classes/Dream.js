@@ -1,4 +1,4 @@
-import { getLocalData } from './storage.js'
+import { getLocalData } from '../storage.js'
 
 export class Dream {
   _getDreamId() {

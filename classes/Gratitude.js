@@ -1,9 +1,9 @@
-import { BaseClass } from './BaseClass.js'
+import { Base } from './Base.js'
 
-export class DayToDay extends BaseClass {
+export class Gratitude extends Base {
   constructor(userId, text, time, date) {
     super()
-    this.id = this._getUniqueId('dayToDays')
+    this.id = this._getUniqueId('gratitudes')
     this.userId = userId
     this.text = text
     this.time = time

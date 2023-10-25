@@ -4,8 +4,8 @@ import { getSessionData, getLocalData, setLocalData } from './storage.js';
 import { findObjectByPropertyValue, findAllObjectsByProperties, findAllObjectsInArray, setData } from './research.js';
 import { changeState, addCheckbox, addLi, selectElement, addEventToElements } from './addEvent.js';
 import { renderStatus, renderElements } from './dom.js';
-import { Gratitude } from './Class_Gratitude.js';
-import { Intention } from './Class_Intention.js';
+import { Gratitude } from './classes/Gratitude.js';
+import { Intention } from './classes/Intention.js';
 import { validateUser } from './validate.js'
 
 window.addEventListener("load", render);

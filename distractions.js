@@ -1,7 +1,7 @@
 import { validateUser } from './validate.js'
 import { getSessionData, getLocalData } from './storage.js'
 import { addEventToElements, createElement, selectElement, setAttributes } from './addEvent.js'
-import { Distraction } from './Class_Distraction.js'
+import { Distraction } from './classes/Distraction.js'
 import { setData, findAllObjectsByProperties, removeProperty } from './research.js'
 import { renderElements } from './dom.js'
 

@@ -1,4 +1,4 @@
-import initialDatabase from './initialDatabaseStructure.js';
+import initialDatabase from '../initialDatabaseStructure.js';
 
 export class User {
   _getUserId() {
