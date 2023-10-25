@@ -1,0 +1,1 @@
+export const selectElement = query => document.querySelector(query)

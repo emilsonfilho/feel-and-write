@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Nunito+Sans:wght@900&family=Ubuntu:wght@400;700&display=swap');
-
-@import 'initialConfig.css';
+@import '../../styles/fontsUrl.css';
+@import '../../styles/initialConfig.css';
 
 body {
   padding: 0;

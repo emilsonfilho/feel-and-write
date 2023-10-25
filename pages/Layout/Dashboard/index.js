@@ -76,10 +76,10 @@ function groupObjectsByText(objects) {
 
 function setTypePage(database, userId) {
   switch (currentPage) {
-    case 'gratitude.html':
+    case '../Gratitude/index.html':
       specificRender('gratitudes', database, userId);
       break;
-    case 'intention.html':
+    case '../Intention/index.html':
       specificRender('intentions', database, userId);
       break;
     default:

@@ -1,0 +1,1 @@
+export const getCurrentPage = () => window.location.pathname.split('/').pop()

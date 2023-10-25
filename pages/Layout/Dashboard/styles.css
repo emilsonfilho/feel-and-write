@@ -1,5 +1,5 @@
-@import './initialConfig.css';
-@imporr './fontsUrl.css';
+@import '../../../styles/initialConfig.css';
+@import '../../../styles/fontsUrl.css';
 
 body h2 {
   text-align: center;

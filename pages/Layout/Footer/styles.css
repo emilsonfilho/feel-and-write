@@ -1,5 +1,5 @@
-@import './fontsUrl.css';
-@import './initialConfig.css';
+@import '../../../styles/fontsUrl.css';
+@import '../../../styles/initialConfig.css';
 
 footer {
   background-color: #291720;

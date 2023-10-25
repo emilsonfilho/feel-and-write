@@ -1,5 +1,5 @@
-@import './fontsUrl.css';
-@import './initialConfig.css';
+@import '../../../styles/fontsUrl.css';
+@import '../../../stles/initialConfig.css';
 
 body {
   width: 100vw;

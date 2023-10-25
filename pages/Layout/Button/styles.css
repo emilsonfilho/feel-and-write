@@ -1,4 +1,4 @@
-@import 'initialConfig.css';
+@import '../../../styles/initialConfig.css';
 
 .button {
   font-size: 1.2em;

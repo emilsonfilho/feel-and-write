@@ -1,4 +1,4 @@
-import { setLocalData } from './storage.js'
+import { setLocalData } from '../storage.js'
 
 export function findObjectByPropertyValue(database, objectName, propertyName, propertyValue) {
   const response = database[objectName].find(object => object[propertyName] === propertyValue);

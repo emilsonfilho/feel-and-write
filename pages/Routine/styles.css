@@ -1,5 +1,5 @@
-@import './initialConfig.css';
-@import './fontsUrl.css';
+@import '../../styles/initialConfig.css';
+@import '../../styles/fontsUrl.css';
 
 aside {
   margin: 40px 0px;
