@@ -1,0 +1,115 @@
+@import '../../styles/initialConfig.css';
+@import '../../styles/fontsUrl.css';
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+body > header {
+  background-color: #000;
+  width: 90%;
+  padding: 35px;
+  color: #fff;
+  font-weight: 700;
+  border-bottom-right-radius: 20px;
+}
+
+body > header > section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+header > section > article.greets p {
+  font-size: 2em;
+  margin-left: 39px;
+}
+
+header > section > article.content {
+  display: flex;
+  gap: 32px;
+}
+
+header > section > article.content > section {
+  display: flex;
+  flex-direction: column;
+}
+
+header > section > article.content > section.data {
+  text-align: right;
+  font-size: 2.3em;
+}
+
+header > section > article.content > section.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+body main {
+  padding: 35px 60px 150px 60px;
+}
+
+main h2 {
+  font-size: 2em;
+}
+
+main p {
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--burnt-orange);
+  font-size: .9em;
+  margin-bottom: 10px;
+}
+
+article form {
+  margin: 10px 0px;
+  display: flex;
+  gap: 10px;
+}
+
+article form input[type="text"] {
+  width: 65%;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-bottom: 2px solid var(--pink-shock);
+  background-color: transparent;
+  outline: none;
+  color: var(--burgundy);
+}
+
+article form input[type="button"] {
+  color: var(--burgundy);
+  background-color: transparent;
+  border: none;
+}
+
+article ul {
+  list-style-position: inside;
+  color: var(--burgundy);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+article ul li {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+hr {
+  margin: 50px auto;
+  max-width: 75%;
+  background-color: var(--burgundy);
+  border: none;
+  padding: 1px;
+}
+
+body object {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
