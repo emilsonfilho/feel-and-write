@@ -1,9 +1,10 @@
 import { addEventToElements } from '../../addEvent.js'
 import { encrypt } from '../../encrypt.js'
-import { validateEmail, isEmpty } from '../../validate.js'
 import { findObjectByPropertyValue } from '../../research.js'
 import { setSessionData, getLocalData } from '../../storage.js'
 import { navigate } from '../../navigation.js'
+
+import { validateEmail, isEmpty } from './utils/validate.js'
 
 addEventToElements('#login-button', 'click', access)
 
