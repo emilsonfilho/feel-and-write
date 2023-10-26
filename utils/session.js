@@ -10,6 +10,7 @@ export const setSessionData = (property, value) => {
 
 export const removeSessionData = property => sessionStorage.removeItem(property);
 
+// Daqui pra baixo tudo será excluído, provavelmente
 export const getLocalData = property => localStorage.getItem(property);
 
 export const setLocalData = (property, obj) => localStorage.setItem(property, JSON.stringify(obj));
