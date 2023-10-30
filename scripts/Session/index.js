@@ -1,16 +1,28 @@
-export const getSessionData = property => JSON.parse(sessionStorage.getItem(property));
+/**
+ * Fetches the data located in the sessionStorage.
+ * @param {string} key - sessionStorage key
+ * @returns {object}
+ */
+export const getSessionData = (key) =>
+  JSON.parse(sessionStorage.getItem(key));
 
-export const setSessionData = (property, value) => {
-  if (typeof value === 'object') {
-    sessionStorage.setItem(property, JSON.stringify(value));
+/**
+ * Set data into the sessionStorage
+ * @param {string} key
+ * @param {object | number | string} value
+ */
+export const setSessionData = (key, value) => {
+  if (typeof value === "object") {
+    sessionStorage.setItem(key, JSON.stringify(value));
   } else {
-    sessionStorage.setItem(property, value);
+    sessionStorage.setItem(key, value);
   }
 };
 
-export const removeSessionData = property => sessionStorage.removeItem(property);
-
-// Daqui pra baixo tudo será excluído, provavelmente
-export const getLocalData = property => localStorage.getItem(property);
-
-export const setLocalData = (property, obj) => localStorage.setItem(property, JSON.stringify(obj));
+/**
+ * Remove data in sessionStorage
+ * @param {string} key - sessionStorage key
+ * @returns {void}
+ */
+export const removeSessionData = (key) =>
+  sessionStorage.removeItem(key);
