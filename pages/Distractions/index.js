@@ -1,70 +1,88 @@
-import { validateUser } from '../../validate.js'
-import { getSessionData, getLocalData } from '../../storage.js'
-import { addEventToElements, createElement, selectElement, setAttributes } from '../../addEvent.js'
-import { Distraction } from '../../classes/Distraction.js'
-import { setData, findAllObjectsByProperties, removeProperty } from '../../research.js'
-import { renderElements } from '../../dom.js'
+import { Distraction } from "../../classes/Distraction.js";
 
-validateUser()
+import { api } from "../../database/api.js";
 
-window.addEventListener("load", render)
+import { useAuth } from "../../hooks/useAuth.js";
 
+import { addEventToElements } from "../../scripts/Dom/Add/index.js";
+import { createElement } from "../../scripts/Dom/Create/index.js";
+import { renderElements } from "../../scripts/Dom/Render/index.js";
+import { selectElement } from "../../scripts/Dom/Select/index.js";
+import { setAttributes } from "../../scripts/Dom/Set/index.js";
+
+import { clearInput } from "../../utils/input.js";
+import { validateUser } from "../../utils/validate.js";
+
+validateUser();
+
+window.addEventListener("load", render);
+
+/**
+ * Render the elements
+ */
 function render() {
   try {
-    const database = JSON.parse(getLocalData('database'))
-    const userId = getSessionData('user')
-    
-    addClickEventToButton(userId, database)
-    
-    renderDistractions(userId, database)
+    const userId = useAuth();
+
+    addClickEventToButton(userId);
+
+    renderDistractions(userId);
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 }
 
-function addClickEventToButton(userId, database) {
+/**
+ * Add click event to the button
+ * @param {number} userId
+ */
+function addClickEventToButton(userId) {
   if (!addClickEventToButton.added) {
-    addClickEventToButton.added = true
-    addEventToElements('#addDistraction', 'click', function() {
-      sendData(userId, database)
-    })
+    addClickEventToButton.added = true;
+    addEventToElements("#addDistraction", "click", function () {
+      sendData(userId);
+    });
   }
 }
 
-function sendData(userId, database) {
-  const input = selectElement('input[type="text"]')
-  const { value } = input
-  const distraction = new Distraction(userId, value)
-  setData(database, 'distractions', distraction, input)
-  render()
+/***
+ * Send data to the backend
+ */
+function sendData(userId) {
+  const input = selectElement('input[type="text"]');
+  const { value } = input;
+  const distraction = new Distraction(userId, value);
+  api().set("distractions").data(distraction);
+  clearInput(input);
+  render();
 }
 
-function renderDistractions(userId, database) {
-  const distractions = findAllObjectsByProperties(database, 'distractions', {
-    userId: userId
-  })
-  
-  const ul = selectElement('ul')
-  ul.innerHTML = ''
-  
+function renderDistractions(userId) {
+  const { response: distractions } = api()
+    .get("distractions")
+    .where({ userId: userId });
+
+  const ul = selectElement("ul");
+  ul.innerHTML = "";
+
   renderElements(distractions, ({ id, text }) => {
-    const div = createElement('div')
-    const li = createElement('li')
-    const input = createElement('input')
-    
-    li.textContent = text
+    const div = createElement("div");
+    const li = createElement("li");
+    const input = createElement("input");
+
+    li.textContent = text;
     setAttributes(input, {
-      'type': 'button',
-      'name': 'removeDistraction',
-      'id': id,
-      'value': 'Concluído'
-    })
-    input.addEventListener('click', () => {
-      removeProperty(database, 'distractions', 'id', id)
-      renderDistractions(userId, database)
-    })
-    
-    div.append(li, input)
-    ul.appendChild(div)
-  })
+      type: "button",
+      name: "removeDistraction",
+      id: id,
+      value: "Concluído",
+    });
+    input.addEventListener("click", () => {
+      api().destroy().table("distractions").where("id", id);
+      renderDistractions(userId);
+    });
+
+    div.append(li, input);
+    ul.appendChild(div);
+  });
 }

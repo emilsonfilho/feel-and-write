@@ -1,12 +1,9 @@
-import { getLocalData } from '../storage.js'
+import { Base } from "./Base.js"
 
-export class Dream {
-  _getDreamId() {
-    return JSON.parse(getLocalData('database')).dreams.length + 1
-  }
-  
+export class Dream extends Base {
   constructor(userId, text, time, date) {
-    this.id = this._getDreamId()
+    super()
+    this.id = this._getUniqueId('dreams')
     this.userId = userId
     this.text = text
     this.time = time

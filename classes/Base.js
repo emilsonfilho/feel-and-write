@@ -1,8 +1,8 @@
-import { getLocalData } from '../storage.js'
+import { api } from '../database/api.js'
 
 export class Base {
-  _getUniqueId(dataName) {
-    const database = JSON.parse(getLocalData('database'));
-    return database[dataName].length + 1;
+  _getUniqueId(table) {
+    const { response: db } = api();
+    return db[table].length + 1;
   }
 }

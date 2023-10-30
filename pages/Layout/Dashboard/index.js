@@ -1,38 +1,52 @@
-import { findAllObjectsByProperties } from '../../../research.js';
-import { formatDate, sortByField } from '../../../date.js';
-import { getCurrentPage, renderElements } from '../../../dom.js';
-import { getSessionData, getLocalData } from '../../../storage.js';
-import { selectElement, createElement } from '../../../addEvent.js';
-import { validateUser } from '../../../validate.js';
+import { api } from '../../../database/api.js';
+
+import { formatDate, sortByField } from '../../../scripts/Date/index.js';
+import { createElement } from '../../../scripts/Dom/Create/index.js';
+import { getCurrentPage } from '../../../scripts/Dom/CurrentPage/index.js'
+import { renderElements } from '../../../scripts/Dom/Render/index.js';
+import { selectElement } from '../../../scripts/Dom/Select/index.js';
+import { getSessionData } from '../../../scripts/Session/index.js';
+
+import { validateUser } from '../../../utils/validate.js';
 
 validateUser();
 const currentPage = getCurrentPage();
 
 window.addEventListener("load", render);
 
+/**
+ * Render the elements
+ */
 function render() {
   try {
     const userId = getSessionData('user');
-    const database = JSON.parse(getLocalData('database'));
 
-    setTypePage(database, userId);
+    setTypePage(userId);
   } catch (e) {
     console.log(e);
   }
 }
 
-function specificRender(type, database, userId) {
-  let objects = findAllObjectsByProperties(database, type, {
-    userId: userId
-  });
+/**
+ * Render the page according specific types
+ * @param {string} type - Specifies which page is to be showed
+ * @param {number} userId 
+ */
+function specificRender(type, userId) {
+  let { response } = api().get(type).where({ userId: userId })
   const section = selectElement('section');
 
-  sortByField(objects, 'date');
-  sortByField(objects, 'time');
+  sortByField(response, 'date');
+  sortByField(response, 'time');
 
-  renderObjects(objects, section);
+  renderObjects(response, section);
 }
 
+/**
+ * Render the objects received from the backend
+ * @param {Array} objects - An object of arrays according data received from the backend
+ * @param {Element} container - Element to the content be showed
+ */
 function renderObjects(objects, container) {
   container.innerHTML = '';
   objects = groupObjectsByText(objects);
@@ -55,6 +69,11 @@ function renderObjects(objects, container) {
   });
 }
 
+/**
+ * Group the objects in alfabetical order
+ * @param {Array} objects - Array objects
+ * @returns {Array}
+ */
 function groupObjectsByText(objects) {
   const groupedByDate = {};
 
@@ -74,13 +93,17 @@ function groupObjectsByText(objects) {
   return resultArray;
 }
 
-function setTypePage(database, userId) {
+/**
+ * which page is to show 
+ * @param {number} userId 
+ */
+function setTypePage(userId) {
   switch (currentPage) {
-    case '../Gratitude/index.html':
-      specificRender('gratitudes', database, userId);
+    case 'Gratitude':
+      specificRender('gratitudes', userId);
       break;
-    case '../Intention/index.html':
-      specificRender('intentions', database, userId);
+    case 'Intention':
+      specificRender('intentions', userId);
       break;
     default:
       throw new Error('Página desconhecida');
