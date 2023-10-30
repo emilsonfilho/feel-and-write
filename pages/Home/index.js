@@ -14,7 +14,6 @@ import { validateUser } from '../../utils/validate.js';
 import { api } from '../../database/api.js';
 import { clearInput } from '../../utils/input.js';
 
-
 window.addEventListener("load", render);
 
 validateUser()

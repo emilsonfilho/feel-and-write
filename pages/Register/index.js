@@ -42,14 +42,11 @@ async function handleClick() {
     };
 
     const result = api();
-    console.log(result.get("users").where({ email: email }).response)
 
     if (result.error || result.get("users").where({ email: email }).response.length === 0) {
-      console.log('conseguiu entrar')
       await storeEncryptedData(email, password_1);
       navigate("../DynamicOptions/index.html");
     } else {
-      console.log('entrou na sedunda')
       throw new Error("Já possui usuário no banco de dados!");
     }
   } catch (e) {

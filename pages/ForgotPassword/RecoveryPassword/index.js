@@ -5,10 +5,8 @@ import { navigate } from '../../../navigation.js'
 import { addEventToElements } from '../../../addEvent.js'
 import { findObjectByPropertyValue } from '../../../research.js'
 
-console.log('Chamou')
 
 const sessionUser = getSessionData('obj')
-console.log(sessionUser)
 
 window.addEventListener("load", render)
 
@@ -19,7 +17,6 @@ function render() {
     const inputEmail = document.querySelector('#email')
   
     inputEmail.value = sessionUser.email
-    console.log(sessionUser, sessionUser.email, inputEmail, inputEmail.value)
   } catch (e) {
     console.log(e.message)
   }
