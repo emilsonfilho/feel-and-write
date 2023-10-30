@@ -65,15 +65,22 @@ function sendData(userId, type) {
   render();
 }
 
+/**
+ * Render the actions of the user
+ * @param {number} userId 
+ * @param {number} scheduleId - schedule's ID in database
+ * @param {string} sectionClass 
+ */
 function renderActions(userId, scheduleId, sectionClass) {
-  const actions = findAllObjectsByProperties(database, 'actions', {
+  const { repsonse: actions } = api().get('actions').where({
     userId: userId,
-    scheduleId: scheduleId
-  });
+    scheduleId: scheduleId,
+  })
+
   const ul = selectElement(`section.${sectionClass} > ul`);
   ul.innerHTML = '';
 
-  renderElements(actions, ({ dailyTask, id }, index) => {
+  renderElements(actions, ({ dailyTask, id }) => {
     const div = createElement('div');
     const li = createElement('li');
     const input = createElement('input');
@@ -85,10 +92,12 @@ function renderActions(userId, scheduleId, sectionClass) {
       'id': id,
       'value': 'Remover'
     });
+
     input.addEventListener('click', () => {
-      removeProperty(database, 'actions', 'id', id);
+      api().destroy('action').table('actions').where('id', id)
       renderActions(userId, database, scheduleId, sectionClass);
     });
+    
     div.append(li, input);
     ul.appendChild(div);
   });

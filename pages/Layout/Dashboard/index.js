@@ -1,15 +1,22 @@
-import { findAllObjectsByProperties } from '../../../research.js';
-import { formatDate, sortByField } from '../../../date.js';
-import { getCurrentPage, renderElements } from '../../../dom.js';
-import { getSessionData, getLocalData } from '../../../storage.js';
-import { selectElement, createElement } from '../../../addEvent.js';
-import { validateUser } from '../../../validate.js';
+import { api } from '../../../database/api.js';
+
+import { formatDate, sortByField } from '../../../scripts/Date/index.js';
+import { createElement } from '../../../scripts/Dom/Create/index.js';
+import { getCurrentPage } from '../../../scripts/Dom/CurrentPage/index.js'
+import { renderElements } from '../../../scripts/Dom/Render/index.js';
+import { selectElement } from '../../../scripts/Dom/Select/index.js';
+import { getSessionData } from '../../../scripts/Session/index.js';
+
+import { validateUser } from '../../../utils/validate.js';
 
 validateUser();
 const currentPage = getCurrentPage();
 
 window.addEventListener("load", render);
 
+/**
+ * Render the elements
+ */
 function render() {
   try {
     const userId = getSessionData('user');
