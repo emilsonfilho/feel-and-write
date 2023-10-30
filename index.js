@@ -29,6 +29,7 @@ async function login() {
       .first();
 
     if (user.password != password) {
+      swal('Campo inválido!', 'Senha incorreta', 'error')
       throw new Error("Senha incorreta.");
     }
 

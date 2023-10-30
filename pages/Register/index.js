@@ -47,6 +47,7 @@ async function handleClick() {
       await storeEncryptedData(email, password_1);
       navigate("../DynamicOptions/index.html");
     } else {
+      swal('Falha na ligação', 'Já existe um usuário cadastrado com esse e-mail!', 'error')
       throw new Error("Já possui usuário no banco de dados!");
     }
   } catch (e) {
