@@ -1,6 +1,6 @@
-import { Base } from "./Base"
+import { Base } from "./Base.js"
 
-export class Dream {
+export class Dream extends Base {
   constructor(userId, text, time, date) {
     super()
     this.id = this._getUniqueId('dreams')

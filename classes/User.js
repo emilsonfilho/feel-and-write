@@ -1,5 +1,5 @@
-import { api } from '../database/api';
-import initialValues from '../database/initialValues';
+import { api } from '../database/api.js';
+import initialValues from '../database/initialValues.js';
 
 export class User {
   _getUserId() {

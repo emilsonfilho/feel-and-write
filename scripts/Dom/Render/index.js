@@ -1,6 +1,6 @@
-import { api } from "../../../database/api";
+import { api } from "../../../database/api.js";
 
-import { changeState } from "../Change";
+import { changeState } from "../Change/index.js";
 
 /**
  * Render the status of the section
@@ -16,7 +16,7 @@ export function renderStatus(type, userId = null) {
     const listSelector = `#${type}-list li`;
     const countProp = `${type}Count`;
     checkedCount = document.querySelectorAll(listSelector).length;
-    totalCount = api().get("users").where({ id: userId }).response[countProp];
+    totalCount = api().get("users").where({ id: userId }).first().response[countProp];
     okMessage = "Você registrou todos os itens";
   } else if (type === "checkbox") {
     elementSelector = ".programmed-actions > p";

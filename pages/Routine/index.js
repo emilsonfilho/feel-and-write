@@ -72,7 +72,7 @@ function sendData(userId, type) {
  * @param {string} sectionClass 
  */
 function renderActions(userId, scheduleId, sectionClass) {
-  const { repsonse: actions } = api().get('actions').where({
+  const { response: actions } = api().get('actions').where({
     userId: userId,
     scheduleId: scheduleId,
   })

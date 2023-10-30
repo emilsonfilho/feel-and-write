@@ -30,8 +30,8 @@ function render() {
     const userId = useAuth();
     const drawn = Math.floor(Math.random() * 10) + 1;
 
-    const { response: message } = api().get('messages').where({ id: drawn }).first();
-    const { response: nickname } = api().get('users').where({ id: userId }).first();
+    const { message } = api().get('messages').where({ id: drawn }).first().response;
+    const { nickname } = api().get('users').where({ id: userId }).first().response;
 
     const { greet, color, timeOfDay } = adjustVariablesByTime(time);
 
@@ -125,7 +125,7 @@ function renderGratitudes(userId) {
  * @param {number} userId 
  */
 function renderIntentions(userId) {
-  const { repsonse: intentions } = api().get('intentions').where({ userId: userId, date: today })
+  const { response: intentions } = api().get('intentions').where({ userId: userId, date: today })
 
   renderElements(intentions, (intention => {
     addLi('#intention-list', intention);
@@ -139,7 +139,8 @@ function renderIntentions(userId) {
  * @param {number} userId 
  */
 function sendData(type, userId) {
-  const { value } = selectElement(`input#${type}`);
+  const input = selectElement(`input#${type}`)
+  const { value } = input;
   let obj = {};
 
   if (type === 'gratitude') {

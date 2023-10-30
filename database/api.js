@@ -20,8 +20,8 @@ export function api() {
     localStorage.setItem("database", JSON.stringify(database));
   };
 
-  if (Object.keys(db).length === 0) {
-    return { error: error404 };
+  if (!db || Object.keys(db).length === 0) {
+    return { error: error404, save: save };
   }
 
   /**
@@ -49,7 +49,7 @@ export function api() {
       );
 
       if (!response.length) {
-        return { error: error404 };
+        return { response: [], error: error404 };
       }
 
       /**

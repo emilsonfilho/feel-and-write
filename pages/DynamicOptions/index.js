@@ -7,5 +7,5 @@ addEventToElements('#iproceed', 'click', handleClick)
  * Sets the next page to the button
  */
 function handleClick() {
-  navigate('gratitudeCount.html')
+  navigate('./Count/GratitudeCount/index.html')
 }

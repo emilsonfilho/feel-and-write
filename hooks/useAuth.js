@@ -1,4 +1,4 @@
-import { getSessionData } from "../scripts/Session";
+import { getSessionData } from "../scripts/Session/index.js";
 
 /**
  * Specifies the id of the user

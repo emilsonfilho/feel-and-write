@@ -25,7 +25,7 @@ function containsLetters(inputValue) {
 function handleClick() {
   try {
     const paramName = selectElement('#proceed').getAttribute('data-param')
-    let { value: iValue } = selectElement(paramName)
+    let { value: iValue } = selectElement(`#${paramName}`)
 
     if (!iValue) {
       throw new Error('Input vazio!')
@@ -42,9 +42,9 @@ function handleClick() {
      let nextPage = '';
      
      if (currentPage === 'GratitudeCount') {
-       nextPage = './IntentionCount/index.html'
+       nextPage = '../IntentionCount/index.html'
      } else if (currentPage === 'IntentionCount') {
-       nextPage = '../Identification/index.html'
+       nextPage = '../../Identification/index.html'
      } else if (currentPage === 'Identification') {
        nextPage = '../Pin/index.html'
      } else {

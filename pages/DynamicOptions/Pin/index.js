@@ -40,9 +40,9 @@ function sendData() {
       JSON.stringify(api().response) || JSON.stringify(initialDatabase)
     );
 
-    database.users.push(user);
+    console.log(api());
 
-    api().set("users").data(user);
+    database.users.push(user);
 
     api().save(database);
 

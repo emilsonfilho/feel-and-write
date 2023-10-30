@@ -1,7 +1,7 @@
-import { api } from "../../../database/api";
+import { api } from "../../../database/api.js";
 
-import { renderStatus } from "../Render";
-import { setAttributes } from "../Set";
+import { renderStatus } from "../Render/index.js";
+import { setAttributes } from "../Set/index.js";
 
 /**
  * Creates an element

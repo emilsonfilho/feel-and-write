@@ -1,10 +1,10 @@
-import { selectElement } from "../Select";
+import { selectElement } from "../Select/index.js";
 import {
   createCheckbox,
   createDivWithClass,
   createElement,
   createLabel,
-} from "../Create";
+} from "../Create/index.js";
 
 /**
  * Adds checkboxes according data from the backend

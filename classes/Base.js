@@ -1,4 +1,4 @@
-import { api } from '../database/api'
+import { api } from '../database/api.js'
 
 export class Base {
   _getUniqueId(table) {

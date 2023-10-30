@@ -58,7 +58,8 @@ const addClickEventsToButtons = (date, time, userId) => {
  * @param {number} userId 
  */
 function sendData(date, time, userId) {
-  const { value } = selectElement('textarea')
+  const textarea = selectElement('textarea')
+  const { value } = textarea
   const dream = new Dream(userId, value, time, date)
   
   api().set('dreams').data(dream)

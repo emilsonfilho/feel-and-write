@@ -1,4 +1,4 @@
-import { navigate } from "../scripts/Navigate/index";
+import { navigate } from "../scripts/Navigate/index.js";
 import { getSessionData } from "../scripts/Session/index.js";
 
 /**
