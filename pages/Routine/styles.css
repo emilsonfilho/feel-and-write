@@ -58,16 +58,19 @@ section.header h2 {
 section.morning h2,
 section.morning input {
   color: var(--burnt-orange);
+  font-weight: bold;
 }
 
 section.afternoon h2,
 section.afternoon input {
   color: var(--pink-shock);
+  font-weight: bold;
 }
 
 section.night h2,
 section.night input {
   color: var(--burgundy);
+  font-weight: bold;
 }
 
 section.header img {
