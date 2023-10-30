@@ -11,7 +11,7 @@ input[type="checkbox"] {
   height: 20px;
   width: 20px;
   border-radius: 5px;
-  border: 1px solid var(--burgundy);
+  border: 1px solid #2917202f;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ input[type="checkbox"] {
 }
 
 label {
-  color: var(--burgundy);
+  color: #29172088;
   font-size: px;
   cursor: pointer;
   font-family: 'Ubuntu', sans-serif;
@@ -36,7 +36,7 @@ input[type="checkbox"]:after {
 }
 
 input[type="checkbox"]:checked {
-  background-color: var(--burgundy);
+  background-color: #2917206c;
 }
 
 input[type="checkbox"]:checked:after {

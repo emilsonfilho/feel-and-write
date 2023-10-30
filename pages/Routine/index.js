@@ -95,7 +95,7 @@ function renderActions(userId, scheduleId, sectionClass) {
 
     input.addEventListener('click', () => {
       api().destroy('action').table('actions').where('id', id)
-      renderActions(userId, database, scheduleId, sectionClass);
+      renderActions(userId, scheduleId, sectionClass);
     });
     
     div.append(li, input);

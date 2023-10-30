@@ -203,7 +203,7 @@ export function api() {
       return { all, where };
     }
 
-    return { all };
+    return { all, table };
   }
 
   /**

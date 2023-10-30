@@ -78,7 +78,7 @@ function renderDistractions(userId) {
       value: "Concluído",
     });
     input.addEventListener("click", () => {
-      api().destroy().table("distractions"), where("id", id);
+      api().destroy().table("distractions").where("id", id);
       renderDistractions(userId);
     });
 

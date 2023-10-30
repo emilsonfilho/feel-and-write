@@ -75,12 +75,12 @@ function adjustVariablesByTime(time) {
   switch (true) {
     case (hours >= 5 && hours < 12):
       greet = 'Bom dia';
-      color = '#f75c03';
+      color = '#ffbd6e';
       timeOfDay = 'Morning';
       break;
     case (hours >= 12 && hours < 18):
       greet = 'Boa tarde';
-      color = '#d90368';
+      color = '#ff9eda';
       timeOfDay = 'Afternoon';
       break;
     default:

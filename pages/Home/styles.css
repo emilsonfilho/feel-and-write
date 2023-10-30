@@ -75,21 +75,21 @@ article form input[type="text"] {
   appearance: none;
   -webkit-appearance: none;
   border: none;
-  border-bottom: 2px solid var(--pink-shock);
+  border-bottom: 2px solid #29172093;
   background-color: transparent;
   outline: none;
   color: var(--burgundy);
 }
 
 article form input[type="button"] {
-  color: var(--burgundy);
+  color: var(--burnt-orange);
   background-color: transparent;
   border: none;
 }
 
 article ul {
   list-style-position: inside;
-  color: var(--burgundy);
+  color: #29172088;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -101,9 +101,9 @@ article ul li {
 }
 
 hr {
-  margin: 50px auto;
+  margin: 35px auto;
   max-width: 75%;
-  background-color: var(--burgundy);
+  background-color: #a0a0a03b;
   border: none;
   padding: 1px;
 }
