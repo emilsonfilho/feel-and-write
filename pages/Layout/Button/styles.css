@@ -1,0 +1,16 @@
+@import '../../../styles/initialConfig.css';
+
+.button {
+  font-size: 1.2em;
+  padding: 9px 58px;
+  border-radius: 25px;
+  background-color: rgba(142,8,72,0.25);
+  border: none;
+  color: var(--burgundy);
+  transition-duration: .8s;
+}
+
+.button:hover {
+  background-color: var(--burgundy);
+  color: #fff;
+}
