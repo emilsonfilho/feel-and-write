@@ -1,26 +1,35 @@
-import { validateUser } from '../../validate.js'
-import { getSessionData, getLocalData } from '../../storage.js'
-import { findAllObjectsByProperties, setData } from '../../research.js'
-import { addEventToElements, selectElement, createElement, setAttributes } from '../../addEvent.js'
-import { getFullDate, sortByField, formatDate } from '../../date.js'
-import { getFormattedTime, formatTime } from '../../time.js'
 import { DayToDay } from '../../classes/DayToDay.js'
-import { renderElements } from '../../dom.js'
+
+import { api } from '../../database/api.js'
+
+import {} from '../../hooks/useAuth.js'
+
+import { getFullDate, sortByField, formatDate } from '../../scripts/Date/index.js'
+import { addEventToElements } from '../../scripts/Dom/Add/index.js'
+import { createElement } from '../../scripts/Dom/Create/index.js'
+import { renderElements } from '../../scripts/Dom/Render/index.js'
+import { selectElement } from '../../scripts/Dom/Select/index.js'
+import { setAttributes } from '../../scripts/Dom/Set/index.js'
+import { getSessionData } from '../../scripts/Session/index'
+import { getFormattedTime, formatTime } from '../../scripts/Time/index.js'
+
+import { validateUser } from '../../utils/validate.js'
+import { clearInput } from '../../utils/input.js'
 
 validateUser()
 
 window.addEventListener("load", render)
 
+/**
+ * Render the elements
+ */
 function render() {
   try {
-    const database = JSON.parse(getLocalData('database'))
-    const userId = getSessionData('user')
+    const userId = useAuth();
     const main = selectElement('main')
     const date = getFullDate()
     const time = getFormattedTime()
-    const registers = findAllObjectsByProperties(database, 'dayToDays', {
-      userId: userId
-    })
+    const { response: registers } = api().get('dayToDays').where({ userId: userId })
     sortByField(registers, 'date')
     sortByField(registers, 'time')
     
@@ -32,7 +41,13 @@ function render() {
   }
 }
 
-const addClickEventsToButtons = (database, date, time, userId) => {
+/**
+ * Add click events to buttons
+ * @param {string} date 
+ * @param {string} time 
+ * @param {number} userId 
+ */
+const addClickEventsToButtons = (date, time, userId) => {
   if (!addClickEventsToButtons.added) {
     addClickEventsToButtons.added = true; 
     addEventToElements('#send', 'click', () => {
@@ -40,18 +55,30 @@ const addClickEventsToButtons = (database, date, time, userId) => {
     })
   }
 }
-function sendData(database, date, time, userId) {
-  const textarea = selectElement('textarea')
-  const { value } = textarea
+
+/**
+ * Send data to the backend
+ * @param {string} date 
+ * @param {string} time 
+ * @param {number} userId 
+ */
+function sendData(date, time, userId) {
+  const { value } = selectElement('textarea')
   const register = new DayToDay(userId, value, time, date)
   
-  setData(database, 'dayToDays', register, textarea)
+  api().set('dayToDays').data(register)
+  clearInput(textarea)
   render()
 }
 
+/**
+ * Render the registers
+ * @param {Array} registers - an array of registers to show
+ * @param {Element | null} main 
+ */
 function renderRegisters(registers, main) {
   main.innerHTML = ''
-  renderElements(registers, ({ text, time, date }, index) => {
+  renderElements(registers, ({ text, time, date }) => {
     const section = createElement('section')
     const title = `${formatDate(date)} - ${formatTime(time)}`
     const h2 = createElement('h2')
@@ -67,6 +94,10 @@ function renderRegisters(registers, main) {
   })
 }
 
+/**
+ * Set the position of the created card
+ * @param {Element} element 
+ */
 function setPosition(element) {
   const num = Math.floor(Math.random() * 2)
   
@@ -77,6 +108,10 @@ function setPosition(element) {
   })
 }
 
+/**
+ * Set background-color of the card of the registers
+ * @param {Element} element 
+ */
 function setBackgroundColor(element) {
   const num = Math.floor(Math.random() * 5)
   

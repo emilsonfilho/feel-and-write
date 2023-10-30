@@ -1,14 +1,19 @@
-import initialDatabase from '../../initialDatabaseStructure.js';
-import Log from '../../log.js';
-import { encrypt } from '../../encrypt.js';
-import { validateEmail, validatePassword } from '../../validate.js';
-import { findObjectByPropertyValue } from '../../research.js';
-import { navigate } from '../../navigation.js';
-import { setSessionData, getLocalData } from '../../storage.js';
-import { addEventToElements } from '../../addEvent.js';
+import initialDatabase from '../../database/initialValues.js';
+
+import { encrypt } from '../../scripts/Encryption/index.js';
+import { addEventToElements } from '../../scripts/Dom/Add/index.js';
+import { navigate } from '../../scripts/Navigate/index.js';
+import { setSessionData } from '../../scripts/Session/index.js';
+
+import { validateEmail, validatePassword } from '../../utils/validate.js';
+import { selectElement } from '../../scripts/Dom/Select/index.js';
+import { api } from '../../database/api.js';
 
 addEventToElements('#access', 'click', handleClick)
 
+/**
+ * Introduce the register of the user clicking at the button
+ */
 async function handleClick() {
   const storeEncryptedData = async (email, password) => {
     try {
@@ -23,9 +28,9 @@ async function handleClick() {
     }
   }
   
-  const email = document.getElementById('email').value;
-  const password_1 = document.getElementById('password').value;
-  const password_2 = document.getElementById('confirmPassword').value;
+  const { value: email } = selectElement('#email')
+  const { value: password_1 } = selectElement('#password')
+  const { value: password_2 } = selectElement('#confirmPassword')
 
   try {
     validateEmail(email);
@@ -37,11 +42,11 @@ async function handleClick() {
       senha: encryptedPassword
     };
 
-    const database = JSON.parse(getLocalData('database') || JSON.stringify(initialDatabase));
+    const result = api().get('users').where({ email: email }).first()
 
-    if (!findObjectByPropertyValue(database, 'users', 'email', email)) {
+    if (result.error) {
       await storeEncryptedData(email, password_1);
-      navigate('showDynamicOptions.html');
+      navigate('../DynamicOptions/index.html');
     } else {
       throw new Error('Já possui usuário no banco de dados!')
     }

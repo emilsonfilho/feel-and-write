@@ -1,8 +1,9 @@
 // Falta findObjectByPropertyValue nos imports
 
+import { api } from "../../../database/api";
 import { changeState } from "../Change";
 
-export function renderStatus(type, userId = null, database = null) {
+export function renderStatus(type, userId = null) {
     let elementSelector, totalCount, checkedCount, missingCount, okMessage;
   
     if (type === 'gratitude' || type === 'intention') {
@@ -10,7 +11,7 @@ export function renderStatus(type, userId = null, database = null) {
       const listSelector = `#${type}-list li`
       const countProp = `${type}Count`
       checkedCount = document.querySelectorAll(listSelector).length;
-      totalCount = findObjectByPropertyValue(database, 'users', 'id', userId)[countProp];
+      totalCount = api().get('users').where({ id: userId }).response[countProp];
       okMessage = 'Você registrou todos os itens'
     } else if (type === 'checkbox') {
       elementSelector = '.programmed-actions > p';

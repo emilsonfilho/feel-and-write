@@ -1,10 +1,10 @@
 import { selectElement } from "../Select"
 import { createCheckbox, createDivWithClass, createElement, createLabel } from "../Create"
 
-export function addCheckbox(query, name, { id, dailyTask, lastOccurrence }, database, today) {
+export function addCheckbox(query, name, { id, dailyTask, lastOccurrence }, today) {
     const container = selectElement(query)
     const div = createDivWithClass('wrapper')
-    const checkbox = createCheckbox(name, id, database, today)
+    const checkbox = createCheckbox(name, id, today)
     const label = createLabel(id, dailyTask)
     
     lastOccurrence === today && (() => checkbox.checked = true)()

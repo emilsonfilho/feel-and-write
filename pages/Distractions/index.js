@@ -1,48 +1,63 @@
-import { validateUser } from '../../validate.js'
-import { getSessionData, getLocalData } from '../../storage.js'
-import { addEventToElements, createElement, selectElement, setAttributes } from '../../addEvent.js'
 import { Distraction } from '../../classes/Distraction.js'
-import { setData, findAllObjectsByProperties, removeProperty } from '../../research.js'
-import { renderElements } from '../../dom.js'
+
+import { api } from '../../database/api.js'
+
+import { useAuth } from '../../hooks/useAuth.js'
+
+import { addEventToElements } from '../../scripts/Dom/Add/index.js'
+import { createElement } from '../../scripts/Dom/Create/index.js'
+import { renderElements } from '../../scripts/Dom/Render/index.js'
+import { selectElement } from '../../scripts/Dom/Select/index.js'
+import { setAttributes } from '../../scripts/Dom/Set/index.js'
+
+import { clearInput } from '../../utils/input.js'
+import { validateUser } from '../../utils/validate.js'
 
 validateUser()
 
 window.addEventListener("load", render)
 
+/**
+ * Render the elements
+ */
 function render() {
   try {
-    const database = JSON.parse(getLocalData('database'))
-    const userId = getSessionData('user')
+    const userId = useAuth();
     
-    addClickEventToButton(userId, database)
+    addClickEventToButton(userId)
     
-    renderDistractions(userId, database)
+    renderDistractions(userId)
   } catch (e) {
     console.log(e)
   }
 }
 
-function addClickEventToButton(userId, database) {
+/**
+ * Add click event to the button
+ * @param {number} userId 
+ */
+function addClickEventToButton(userId) {
   if (!addClickEventToButton.added) {
     addClickEventToButton.added = true
     addEventToElements('#addDistraction', 'click', function() {
-      sendData(userId, database)
+      sendData(userId)
     })
   }
 }
 
-function sendData(userId, database) {
-  const input = selectElement('input[type="text"]')
-  const { value } = input
+/***
+ * Send data to the backend
+ */
+function sendData(userId) {
+  const { value } = selectElement('input[type="text"]')
   const distraction = new Distraction(userId, value)
-  setData(database, 'distractions', distraction, input)
+  api().set('distractions').data(distraction)
+  clearInput(input)
   render()
 }
 
-function renderDistractions(userId, database) {
-  const distractions = findAllObjectsByProperties(database, 'distractions', {
-    userId: userId
-  })
+function renderDistractions(userId) {
+  const { response: distractions } = api().get('distractions').where({ userId: userId })
   
   const ul = selectElement('ul')
   ul.innerHTML = ''
@@ -60,8 +75,8 @@ function renderDistractions(userId, database) {
       'value': 'Concluído'
     })
     input.addEventListener('click', () => {
-      removeProperty(database, 'distractions', 'id', id)
-      renderDistractions(userId, database)
+      api().destroy().table('distractions'),where('id', id)
+      renderDistractions(userId)
     })
     
     div.append(li, input)

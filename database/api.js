@@ -26,7 +26,7 @@ export function api() {
 
   /**
    * Get the data from the database according with the table selected
-   * @param {string} tableName 
+   * @param {string} tableName
    * @returns {object}
    */
   function get(tableName) {
@@ -85,7 +85,7 @@ export function api() {
 
     /**
      * Insert and save data in database
-     * @param {object} data - Data to insert in table
+     * @param {object | Action | DayToDay | Distraction | Dream | Gratitude | Intention | User } data - Data to insert in table
      */
     function data(data) {
       if (typeof data !== "object") {
@@ -104,7 +104,7 @@ export function api() {
 
   /**
    * Update data in database
-   * @param {string} tableName 
+   * @param {string} tableName
    * @returns {object}
    */
   function put(tableName) {
@@ -161,7 +161,7 @@ export function api() {
 
     /**
      * Select table to delete
-     * @param {string} tableName 
+     * @param {string} tableName
      * @returns {object}
      */
     function table(tableName) {
@@ -179,39 +179,25 @@ export function api() {
       }
 
       /**
-       * Select field to delete
-       * @param {string} fieldName 
+       * Selects the corre
+       * @param {string} field - Select the field to compare
+       * @param {any} value - Says the value to compare
        */
-      function field(fieldName) {
-        /**
-         * Delete all data imn selected field
-         */
-        function all() {
-          table = [];
-          save(db);
+      function where(field, value) {
+        const target = table.find((entry) => entry[field] === value);
+
+        if (!target) {
+          throw new Error(error404);
         }
 
-        /**
-         * Selects the corre 
-         * @param {string} field - Select the field to compare
-         * @param {any} value - Says the value to compare
-         */
-        function where(field, value) {
-          const target = table.find((entry) => entry[field] === value);
+        const index = table.indexOf(target);
 
-          if (!target) {
-            throw new Error(error404);
-          }
-
-          const index = table.indexOf(target);
-
-          if (index === -1) {
-            throw new Error(error404);
-          }
-
-          table.splice(index, 1);
-          save(db);
+        if (index === -1) {
+          throw new Error(error404);
         }
+
+        table.splice(index, 1);
+        save(db);
       }
 
       return { all, where };
@@ -240,7 +226,7 @@ export function api() {
 
     /**
      * Says which table will be cleared
-     * @param {string} tableName 
+     * @param {string} tableName
      */
     function table(tableName) {
       const table = getTable(tableName);
@@ -256,5 +242,5 @@ export function api() {
     return { all, table };
   }
 
-  return { response: db, get, set, put, destroy, clear };
+  return { response: db, get, set, put, destroy, clear, save };
 }

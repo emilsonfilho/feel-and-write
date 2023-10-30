@@ -1,5 +1,5 @@
-import { navigate } from './navigation.js'
-import { getSessionData } from './storage.js'
+import { navigate } from '../scripts/Navigate/index'
+import { getSessionData } from '../scripts/Session/index.js'
 
 export function validateEmail(email) {
   if (!email) {
@@ -14,7 +14,7 @@ export function validatePassword(pass1, pass2) {
   if (!pass1 || !pass2) {
     throw new Error('Ambas as senhas são obrigatórias.')
   }
-  if (pass1 !== pass1) {
+  if (pass1 !== pass2) {
     throw new Error('As senhas não coincidem.')
   }
   if (!isValidPassword(pass1)) {
@@ -33,7 +33,7 @@ export function validatePin(pin) {
 
 export const isEmpty = (value) => !value;
 
-export const validateUser = () => !getSessionData('user') && (() => navigate('index.html'))()
+export const validateUser = () => !getSessionData('user') && (() => navigate('../index.html'))()
 
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

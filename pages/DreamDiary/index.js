@@ -1,24 +1,31 @@
-import { addEventToElements, selectElement, createElement, changeState } from '../../addEvent.js'
-import { getSessionData, getLocalData } from '../../storage.js'
-import { setData, findAllObjectsByProperties } from '../../research.js'
 import { Dream } from '../../classes/Dream.js'
-import { getFormattedTime, formatTime } from '../../time.js'
-import { getFullDate, formatDate, sortByField } from '../../date.js'
-import { renderElements } from '../../dom.js'
-import { validateUser } from '../../validate.js'
+
+import { useAuth } from '../../hooks/useAuth.js'
+
+import { formatDate, getFullDate, sortByField } from '../../scripts/Date/index.js'
+import { addEventToElements } from '../../scripts/Dom/Add/index.js'
+import { createElement } from '../../scripts/Dom/Create/index.js'
+import { renderElements } from '../../scripts/Dom/Render/index.js'
+import { selectElement } from '../../scripts/Dom/Select/index.js'
+import { formatTime, getFormattedTime } from '../../scripts/Time/index.js'
+
+import { validateUser } from '../../utils/validate.js'
+import { api } from '../../database/api.js'
+import { clearInput } from '../../utils/input.js'
+
 
 validateUser()
 
 window.addEventListener("load", render)
 
+/**
+ * Rendeer the registers of the dreams in cards
+ */
 function render() {
-  const userId = getSessionData('user')
-  const database = JSON.parse(getLocalData('database'))
+  const userId = useAuth();
   const date = getFullDate()
   const time = getFormattedTime()
-  const dreams = findAllObjectsByProperties(database, 'dreams', {
-    userId: userId
-  })
+  const { response: dreams } = api().get('dreams').where({ userId: userId })
   const section = selectElement('section.records')
   
   sortByField(dreams, 'date')
@@ -26,27 +33,44 @@ function render() {
   
   renderDreams(dreams, section)
   
-  addClickEventsToButtons(database, date, time, userId)
+  addClickEventsToButtons(date, time, userId)
 }
 
-const addClickEventsToButtons = (database, date, time, userId) => {
+/**
+ * Adds events clicks to the button
+ * @param {string} date 
+ * @param {string} time 
+ * @param {number} userId 
+ */
+const addClickEventsToButtons = (date, time, userId) => {
   if (!addClickEventsToButtons.added) {
     addClickEventsToButtons.added = true; 
     addEventToElements('#send', 'click', () => {
-      sendData(database, date, time, userId)
+      sendData(date, time, userId)
     })
   }
 }
 
-function sendData(database, date, time, userId) {
-  const textarea = selectElement('textarea')
-  const { value } = textarea
+/**
+ * Send data to the backend
+ * @param {string} date 
+ * @param {string} time 
+ * @param {number} userId 
+ */
+function sendData(date, time, userId) {
+  const { value } = selectElement('textarea')
   const dream = new Dream(userId, value, time, date)
   
-  setData(database, 'dreams', dream, textarea)
+  api().set('dreams').data(dream)
+  clearInput(textarea)
   render()
 }
 
+/**
+ * Render the cards of the dreams in the screen
+ * @param {Dream} dreams 
+ * @param {Element} section 
+ */
 function renderDreams(dreams, section) {
   section.innerHTML = ''
   renderElements(dreams, ({ text, time, date }) => {

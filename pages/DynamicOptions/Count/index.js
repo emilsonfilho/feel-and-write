@@ -1,21 +1,31 @@
-import { navigate } from '../../../navigation.js'
-import { getSessionData, setSessionData } from '../../../storage.js'
-import { addEventToElements } from '../../../addEvent.js'
-import { isEmpty } from '../../../validate.js'
-import { getCurrentPage } from '../../../dom.js'
+import { addEventToElements } from '../../../scripts/Dom/Add/index.js'
+import { getCurrentPage } from '../../../scripts/Dom/CurrentPage/index.js'
+import { selectElement } from '../../../scripts/Dom/Select/index.js'
+import { navigate } from '../../../scripts/Navigate/index.js'
+import { getSessionData, setSessionData } from '../../../scripts/Session/index.js'
+
+import { isEmpty } from '../../../utils/validate.js'
 
 const currentPage = getCurrentPage()
 
 addEventToElements('#proceed', 'click', handleClick)
 
+/**
+ * Verifies if the string correspondes to the regex offered
+ * @param {string} inputValue 
+ * @returns {boolean}
+ */
 function containsLetters(inputValue) {
   return /[a-zA-Z]/.test(inputValue);
 }
 
+/**
+ * Changes the destination page by the current user page
+ */
 function handleClick() {
   try {
-    const paramName = document.querySelector('#proceed').getAttribute('data-param');
-    let iValue = document.querySelector(`#${paramName}`).value
+    const paramName = selectElement('#proceed').getAttribute('data-param')
+    let { value: iValue } = selectElement(paramName)
 
     if (!iValue) {
       throw new Error('Input vazio!')
@@ -31,14 +41,14 @@ function handleClick() {
      
      let nextPage = '';
      
-     if (currentPage === 'gratitudeCount.html') {
-       nextPage = 'intentionCount.html'
-     } else if (currentPage === 'intentionCount.html') {
-       nextPage = 'identification.html'
-     } else if (currentPage === 'identification.html') {
-       nextPage = 'pin.html'
+     if (currentPage === 'GratitudeCount') {
+       nextPage = './IntentionCount/index.html'
+     } else if (currentPage === 'IntentionCount') {
+       nextPage = '../Identification/index.html'
+     } else if (currentPage === 'Identification') {
+       nextPage = '../Pin/index.html'
      } else {
-       nextPage = 'error404.html'
+       nextPage = '../../Error404/index.html'
      }
  
      navigate(nextPage)

@@ -1,31 +1,40 @@
-import { addEventToElements } from '../../addEvent.js'
-import { encrypt } from '../../encrypt.js'
-import { findObjectByPropertyValue } from '../../research.js'
-import { setSessionData, getLocalData } from '../../storage.js'
-import { navigate } from '../../navigation.js'
+import { api } from "./database/api.js";
 
-import { validateEmail, isEmpty } from './utils/validate.js'
+import { addEventToElements } from "./scripts/Dom/Add/index.js";
+import { encrypt } from "./scripts/Encryption/index.js";
+import { setSessionData } from "./scripts/Session/index.js";
+import { navigate } from "./scripts/Navigate/index.js";
 
-addEventToElements('#login-button', 'click', access)
+import { validateEmail, isEmpty } from "./utils/validate.js";
 
-async function access() {
+addEventToElements("#login-button", "click", login);
+
+/*
+ * Log user into the system
+ */
+async function login() {
   try {
-    const email = document.querySelector('#email').value
-    const password = await encrypt(document.querySelector('#password').value)
-    
-    validateEmail(email)
-    isEmpty(password) && (() => { throw new Error('O campo de senha não foi preenchido.'); })();
-    
-    const user = findObjectByPropertyValue(JSON.parse(getLocalData('database')), 'users', 'email', email)
-    
+    const email = document.querySelector("#email").value;
+    const password = await encrypt(document.querySelector("#password").value);
+
+    validateEmail(email);
+    isEmpty(password) &&
+      (() => {
+        throw new Error("O campo de senha não foi preenchido.");
+      })();
+
+    const { response: user } = api()
+      .get("users")
+      .where({ email: email })
+      .first();
+
     if (user.password != password) {
-      throw new Error('Senha incorreta.')
+      throw new Error("Senha incorreta.");
     }
-    
-    setSessionData('user', user.id)
-    navigate('home.html')
+
+    setSessionData("user", user.id);
+    navigate("./pages/Home/index.html");
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
-  
 }

@@ -1,9 +1,16 @@
-import { addEventToElements, selectElement, createElement, setAttributes } from '../../addEvent.js'
-import { validateUser } from '../../validate.js'
 import { Action } from '../../classes/Action.js'
-import { getSessionData, getLocalData } from '../../storage.js'
-import { setData, findAllObjectsByProperties, removeProperty } from '../../research.js'
-import { renderElements } from '../../dom.js'
+
+import { api } from '../../database/api.js'
+import { useAuth } from '../../hooks/useAuth.js'
+
+import { addEventToElements } from '../../scripts/Dom/Add/index.js'
+import { createElement } from '../../scripts/Dom/Create/index.js'
+import { renderElements } from '../../scripts/Dom/Render/index.js'
+import { selectElement } from '../../scripts/Dom/Select/index.js'
+import { setAttributes } from '../../scripts/Dom/Set/index.js'
+import { clearInput } from '../../utils/input.js'
+
+import { validateUser } from '../../utils/validate.js'
 
 validateUser()
 
@@ -15,42 +22,50 @@ const schedules = {
   night: 3
 };
 
+/**
+ * Render the routine of the user
+ */
 function render() {
   try {
-    const userId = getSessionData('user')
-    const database = JSON.parse(getLocalData('database'))
+    const userId = useAuth();
     
-    addClickEventsToButtons(userId, database)
+    addClickEventsToButtons(userId)
     
-    renderActions(userId, database, schedules.morning, 'morning');
-    renderActions(userId, database, schedules.afternoon, 'afternoon');
-    renderActions(userId, database, schedules.night, 'night');
+    renderActions(userId, schedules.morning, 'morning');
+    renderActions(userId, schedules.afternoon, 'afternoon');
+    renderActions(userId, schedules.night, 'night');
   } catch (e) {
     console.log(e)
   }
 }
 
-const addClickEventsToButtons = (userId, database) => {
+const addClickEventsToButtons = (userId) => {
   if (!addClickEventsToButtons.added) {
     addClickEventsToButtons.added = true; 
     addEventToElements('input[name="add"]', 'click', function (event) {
       let { id: type } = event.target;
       type = type.split('add-')[1];
-      sendData(userId, type, database);
+      sendData(userId, type);
     });
   }
 }
 
-function sendData(userId, type, database) {
+/**
+ * Send data to the backend
+ * @param {number} userId 
+ * @param {string} type - Morning / Afternoon / Night
+ */
+function sendData(userId, type) {
   const input = selectElement(`input#${type}`)
   const { value } = input
   type = type.split('-')[0]
   const action = new Action(userId, type, value)
-  setData(database, 'actions', action, input)
+  api().set('actions').data(action)
+  clearInput(input)
   render();
 }
 
-function renderActions(userId, database, scheduleId, sectionClass) {
+function renderActions(userId, scheduleId, sectionClass) {
   const actions = findAllObjectsByProperties(database, 'actions', {
     userId: userId,
     scheduleId: scheduleId

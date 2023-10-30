@@ -1,10 +1,16 @@
+import { api } from "../../../database/api"
 import { renderStatus } from "../Render"
 import { setAttributes } from "../Set"
 // FALTA UPDATEPROPERTY NOS IMPORTS
 
+/**
+ * Creates an element
+ * @param {string} element - the query
+ * @returns {Element} - created DOM Element
+ */
 export const createElement = (element) => document.createElement(element)
   
-export function createCheckbox(name, id, database, date) {
+export function createCheckbox(name, id, date) {
     let checkbox = createElement('input')
     checkbox = setAttributes(checkbox, {
       'type': 'checkbox',
@@ -13,7 +19,7 @@ export function createCheckbox(name, id, database, date) {
     })
     checkbox.addEventListener('change', () => {
       checkbox.checked = true
-      updateProperty(database, 'actions', 'id', id, 'lastOccurrence', date)
+      api().put('actions').where('id', id).to('lastOccurrence', date)
       renderStatus('checkbox')
     })
     return checkbox

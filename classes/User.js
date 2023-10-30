@@ -1,8 +1,9 @@
-import initialDatabase from '../initialDatabaseStructure.js';
+import { api } from '../database/api';
+import initialValues from '../database/initialValues';
 
 export class User {
   _getUserId() {
-    return JSON.parse(localStorage.getItem('database') || JSON.stringify(initialDatabase)).users.length + 1
+    return JSON.parse(!(api().error) || JSON.stringify(initialValues)).users.length + 1
   }
   
   constructor(email, password, nickname, verifyCode, gratitudeCount, intentionCount) {
