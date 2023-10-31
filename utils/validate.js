@@ -61,7 +61,7 @@ export const isEmpty = (value) => !value;
  * @returns {boolean}
  */
 export const validateUser = () =>
-  !getSessionData("user") && (() => navigate("../index.html"))();
+  !getSessionData("user") && (() => navigate("../../index.html"))();
 
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
