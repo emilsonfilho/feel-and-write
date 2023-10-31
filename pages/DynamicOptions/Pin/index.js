@@ -49,6 +49,7 @@ function sendData() {
     setSessionData("user", user.id);
     navigate("../../Home/index.html");
   } catch (e) {
+    swal('Erro ao enviar os dados!', '','error')
     console.log("Erro ao enviar os dados:", e);
   }
 }

@@ -7,9 +7,11 @@ import { getSessionData } from "../scripts/Session/index.js";
  */
 export function validateEmail(email) {
   if (!email) {
+    swal('Campo inválido!', 'O e-mail é obrigatório.', 'error')
     throw new Error("O e-mail é obrigatório.");
   }
   if (!isValidEmail(email)) {
+    swal('E-mail inválido!', 'O e-mail não está no formato correto.', 'error')
     throw new Error("O e-mail não está no formato correto.");
   }
 }
@@ -21,12 +23,15 @@ export function validateEmail(email) {
  */
 export function validatePassword(pass1, pass2) {
   if (!pass1 || !pass2) {
+    swal('Senha incorreta!', 'Ambas as senhas são obrigatórias.', 'error')
     throw new Error("Ambas as senhas são obrigatórias.");
   }
   if (pass1 !== pass2) {
+    swal("Senha incorreta!", "As senhas não coincidem", "error")
     throw new Error("As senhas não coincidem.");
   }
   if (!isValidPassword(pass1)) {
+    swal('Senha incorreta!', 'A senha deve ter pelo menos 8 dígitos', 'error')
     throw new Error("A senha deve ter pelo menos 8 dígitos.");
   }
 }

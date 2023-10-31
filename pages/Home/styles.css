@@ -13,6 +13,8 @@ body > header {
   color: #fff;
   font-weight: 700;
   border-bottom-right-radius: 20px;
+  box-shadow:  7px 7px 23px #d3d3d3,
+             -7px -7px 23px #ededed;
 }
 
 body > header > section {

@@ -28,6 +28,7 @@ function handleClick() {
     let { value: iValue } = selectElement(`#${paramName}`)
 
     if (!iValue) {
+      swal('Input vazio', 'O valor não pode ser nulo', 'error')
       throw new Error('Input vazio!')
      }
      
