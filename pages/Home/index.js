@@ -20,6 +20,7 @@ validateUser()
 
 const time = getFormattedTime()
 const today = getFullDate()
+let greet, color, timeOfDay = '';
 
 /**
  * Render the home content
@@ -45,6 +46,8 @@ function render() {
     changeState('article.greets > p', 'textContent', `${greet}, ${nickname}!`);
     changeState('header', 'backgroundColor', color);
     changeState('footer', 'backgroundColor', color);
+    
+    colorizeElements();
   } catch (e) {
     console.log(e);
   }
@@ -69,22 +72,21 @@ const addClickEventsToButtons = (userId) => addEventToElements('input[name="add"
  */
 function adjustVariablesByTime(time) {
   const hours = Number(time.split(':')[0]);
-  let greet, color, timeOfDay = '';
 
   switch (true) {
     case (hours >= 5 && hours < 12):
       greet = 'Bom dia';
-      color = '#ffbd6e';
+      color = '#fe9939';
       timeOfDay = 'Morning';
       break;
     case (hours >= 12 && hours < 18):
       greet = 'Boa tarde';
-      color = '#ff9eda';
+      color = '#f83ca7';
       timeOfDay = 'Afternoon';
       break;
     default:
       greet = 'Boa noite';
-      color = '#820263';
+      color = '#ae0088';
       timeOfDay = 'Night';
   }
 
@@ -156,3 +158,29 @@ function sendData(type, userId) {
   renderStatus(type, userId);
 }
 
+/**
+ * Colorize status paragraphs
+ */
+function colorizeElements() {
+  const paragraphs = document.querySelectorAll("main p")
+  paragraphs.forEach((paragraph) => {
+    paragraph.style.color = color
+  })
+  
+  const buttons = document.querySelectorAll("article form input[type='button']")
+  buttons.forEach(button => {
+    button.style.color = color
+  });
+  
+  const checks = document.querySelectorAll('input[type="checkbox"]')
+    checks.forEach((check) => {
+      check.addEventListener('click', () => {
+        check.style.backgroundColor = color
+      }
+    )})
+    
+  const selectedChecks = document.querySelectorAll('input[type="checkbox"]:checked')
+  selectedChecks.forEach((selected) => {
+    selected.style.backgroundColor = color
+  })
+}
