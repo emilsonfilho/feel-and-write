@@ -5,6 +5,7 @@ header {
   padding: 15px 35px;
   gap: 20px;
   width: 100vw;
+  box-shadow: 0px 12px 100px -34px rgba(0,0,0,0.2);
 }
 
 header img {
