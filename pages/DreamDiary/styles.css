@@ -16,7 +16,8 @@ article {
   margin: 20px 0px;
   display: flex;
   flex-direction: column;
-  gap: 18px
+  gap: 18px;
+  box-shadow:  5px 5px 28px #c7c7c7;
 }
 
 article h2 {
@@ -32,9 +33,11 @@ section {
 aside {
   width: 75%;
   margin: 10px 0px;
-  background-color: rgba(0, 0, 0, 0.18);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 22px 30px;
   border-radius: 20px;
+  box-shadow: 5px 5px 18px #d7d7d7,
+             -5px -5px 18px #ebebeb;
 }
 
 aside h3 {
