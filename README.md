@@ -59,6 +59,14 @@ Você encontrará uma aplicação prática desse projeto no seguinte link: [emil
 
 :us: - The project has a limitation of technologies by the programmer infrastructure. Tip: deploy technologies like SQL or React to this project. Who knows, one day, this application can become a mobile app entirely adaptable to the users.
 
+<h2 class="mt">Fluxograma de Branches</h2>
+
+🇧🇷 - Uma breve interpretação visual de como o git se comporta na organização de branches desse projeto.
+
+<em>:us: - A brief visual interpretation of how git behaves in organizing the branches of this project.</em>
+
+<img src="assets/images/github/fluxo.png">
+
 <h2 class="mt" id="author">🍁 Autor</h2>
 
 <div style="display: flex; flex-direction: column; text-align:center; gap: 10px;">
