@@ -59,8 +59,4 @@ section p {
   body > p {
     font-size: 14px;
   }
-
-  form input {
-    padding: 10px !important;
-  }
 }

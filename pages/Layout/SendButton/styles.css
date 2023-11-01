@@ -1,0 +1,5 @@
+@media screen and (max-width: 518px) {
+  form input {
+    padding: 10px !important;
+  }
+}
