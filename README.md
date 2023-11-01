@@ -63,7 +63,7 @@ Você encontrará uma aplicação prática desse projeto no seguinte link: [emil
 
 🇧🇷 - Uma breve interpretação visual de como o git se comporta na organização de branches desse projeto.
 
-<em>:us: - A brief visual interpretation of how git behaves in organizing the branches of this project.</em>
+:us: - A brief visual interpretation of how git behaves in organizing the branches of this project.
 
 <img src="assets/images/github/fluxo.png">
 
