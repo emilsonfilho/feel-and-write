@@ -10,6 +10,7 @@ body > p {
   border-bottom: 2px solid var(--pink-shock); 
   font-weight: 300;
   padding: 35px;
+  transition: all .1s ease-out;
 }
 
 main {
@@ -52,4 +53,14 @@ section p {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 518px) {
+  body > p {
+    font-size: 14px;
+  }
+
+  form input {
+    padding: 10px !important;
+  }
 }

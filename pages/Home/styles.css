@@ -4,6 +4,7 @@
 body {
   min-width: 100vw;
   min-height: 100vh;
+  transition: all .1s ease-out;
 }
 
 body > header {

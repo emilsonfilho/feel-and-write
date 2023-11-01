@@ -60,3 +60,10 @@ footer .item {
     display: none;
   }
 }
+
+
+@media screen and (max-width: 541px) {
+  a > img {
+    width: 45px !important;
+  }
+}
