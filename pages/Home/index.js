@@ -142,6 +142,12 @@ function renderIntentions(userId) {
 function sendData(type, userId) {
   const input = selectElement(`input#${type}`)
   const { value } = input;
+
+  if (!value) {
+    swal("Campo vazio!", "Por favor, insira um valor", "error")
+    throw new Error("Não é possível inserir um valor vazio!")
+  }
+
   let obj = {};
 
   if (type === 'gratitude') {

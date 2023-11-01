@@ -58,6 +58,12 @@ const addClickEventsToButtons = (userId) => {
 function sendData(userId, type) {
   const input = selectElement(`input#${type}`)
   const { value } = input
+
+  if (!value) {
+    swal("Campo vazio!", "Por favor, insira um valor", "error")
+    throw new Error("Não é possível inserir um valor vazio!")
+  }
+
   type = type.split('-')[0]
   const action = new Action(userId, type, value)
   api().set('actions').data(action)

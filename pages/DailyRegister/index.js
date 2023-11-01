@@ -70,6 +70,12 @@ const addClickEventsToButtons = (date, time, userId) => {
 function sendData(date, time, userId) {
   const textarea = selectElement("textarea");
   const { value } = textarea;
+
+  if (!value) {
+    swal("Campo vazio!", "Por favor, insira um valor", "error")
+    throw new Error("Não é possível inserir um valor vazio!")
+  }
+
   const register = new DayToDay(userId, value, time, date);
 
   api().set("dayToDays").data(register);

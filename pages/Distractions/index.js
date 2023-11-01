@@ -51,6 +51,12 @@ function addClickEventToButton(userId) {
 function sendData(userId) {
   const input = selectElement('input[type="text"]');
   const { value } = input;
+
+  if (!value) {
+    swal("Campo vazio!", "Por favor, insira um valor", "error")
+    throw new Error("Não é possível inserir um valor vazio!")
+  }
+
   const distraction = new Distraction(userId, value);
   api().set("distractions").data(distraction);
   clearInput(input);
