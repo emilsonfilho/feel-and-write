@@ -80,7 +80,7 @@ article form input[type="text"] {
   border-bottom: 2px solid #29172093;
   background-color: transparent;
   outline: none;
-  color: var(--burgundy);
+  color: #291720c5;
 }
 
 article form input[type="button"] {
