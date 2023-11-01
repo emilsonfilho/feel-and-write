@@ -1,5 +1,5 @@
-@import '../../styles/fontsUrl.css';
-@import '../../styles/initialConfig.css';
+@import "../../styles/fontsUrl.css";
+@import "../../styles/initialConfig.css";
 
 body {
   display: flex;
@@ -31,15 +31,15 @@ body {
   .container {
     max-width: 80%;
   }
-  
+
   .container h2 {
     font-size: 1.5em;
   }
-  
+
   .container p {
     font-size: 1.2em;
   }
-  
+
   .container input {
     padding: 8px 20px;
     font-size: 1em;
@@ -47,12 +47,13 @@ body {
 }
 body #shape-tl {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   transform: translate(-40%, -55%);
   width: 650px;
   height: 650px;
-}body #shape-br {
+}
+body #shape-br {
   position: fixed;
   bottom: 0;
   right: 0;

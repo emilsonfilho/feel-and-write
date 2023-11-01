@@ -3,8 +3,7 @@
  * @param {string} key - sessionStorage key
  * @returns {object}
  */
-export const getSessionData = (key) =>
-  JSON.parse(sessionStorage.getItem(key));
+export const getSessionData = (key) => JSON.parse(sessionStorage.getItem(key));
 
 /**
  * Set data into the sessionStorage
@@ -24,5 +23,4 @@ export const setSessionData = (key, value) => {
  * @param {string} key - sessionStorage key
  * @returns {void}
  */
-export const removeSessionData = (key) =>
-  sessionStorage.removeItem(key);
+export const removeSessionData = (key) => sessionStorage.removeItem(key);

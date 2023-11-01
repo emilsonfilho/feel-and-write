@@ -1,5 +1,5 @@
-@import '../../styles/initialConfig.css';
-@import '../../styles/fontsUrl.css';
+@import "../../styles/initialConfig.css";
+@import "../../styles/fontsUrl.css";
 
 aside {
   margin: 40px 0px;
@@ -21,7 +21,7 @@ aside > section.title {
 
 aside > section.title h3 {
   display: inline-block;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 900;
   color: #fff;
   font-size: 1.6em;
@@ -47,11 +47,11 @@ main {
 section.header {
   display: flex;
   align-items: center;
-  gap: 20px
+  gap: 20px;
 }
 
 section.header h2 {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
 }
 
@@ -88,7 +88,7 @@ main input[type="text"] {
 main form {
   padding: 10px 0px;
   display: flex;
-  gap: 17px
+  gap: 17px;
 }
 
 main input[type="button"] {
@@ -103,7 +103,7 @@ ul {
 
 ul li,
 ul div {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 ul div {

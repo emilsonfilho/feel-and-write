@@ -43,11 +43,18 @@ async function handleClick() {
 
     const result = api();
 
-    if (result.error || result.get("users").where({ email: email }).response.length === 0) {
+    if (
+      result.error ||
+      result.get("users").where({ email: email }).response.length === 0
+    ) {
       await storeEncryptedData(email, password_1);
       navigate("../DynamicOptions/index.html");
     } else {
-      swal('Falha na ligação', 'Já existe um usuário cadastrado com esse e-mail!', 'error')
+      swal(
+        "Falha na ligação",
+        "Já existe um usuário cadastrado com esse e-mail!",
+        "error",
+      );
       throw new Error("Já possui usuário no banco de dados!");
     }
   } catch (e) {

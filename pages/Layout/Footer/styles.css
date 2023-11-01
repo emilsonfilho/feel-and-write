@@ -1,5 +1,5 @@
-@import '../../../styles/fontsUrl.css';
-@import '../../../styles/initialConfig.css';
+@import "../../../styles/fontsUrl.css";
+@import "../../../styles/initialConfig.css";
 
 footer {
   background-color: #291720;
@@ -7,7 +7,7 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   padding: 5px;
   position: fixed;
   bottom: 0;
@@ -17,7 +17,7 @@ footer a {
   color: #f7f7f7;
   text-decoration: none;
   font-weight: 700;
-  font-size: .8em;
+  font-size: 0.8em;
   text-align: center;
 }
 
@@ -35,7 +35,7 @@ footer .item {
   justify-content: center;
   align-items: center;
   gap: 3px;
-} 
+}
 
 @media screen and (max-width: 558px) {
   footer .item {
@@ -53,14 +53,13 @@ footer .item {
   }
 
   footer a {
-    font-size: .7em;
+    font-size: 0.7em;
   }
-  
+
   footer p {
     display: none;
   }
 }
-
 
 @media screen and (max-width: 541px) {
   a > img {

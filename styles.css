@@ -1,5 +1,5 @@
-@import '../../styles/fontsUrl.css';
-@import '../../styles/initialConfig.css';
+@import "../../styles/fontsUrl.css";
+@import "../../styles/initialConfig.css";
 
 .container {
   display: flex;
@@ -104,4 +104,3 @@ input[type="password"]:focus {
   color: #820263;
   text-decoration: none;
 }
-

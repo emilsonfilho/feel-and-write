@@ -18,8 +18,8 @@ function check() {
       Number(
         Array.from(inputArray)
           .map((input) => input.value)
-          .join("")
-      )
+          .join(""),
+      ),
     );
     const result = api().get("users").where({ verifyCode: pin }).first();
     let user;

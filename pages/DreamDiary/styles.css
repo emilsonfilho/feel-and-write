@@ -1,5 +1,5 @@
-@import '../../styles/initialConfig.css';
-@import '../../styles/fontsUrl.css';
+@import "../../styles/initialConfig.css";
+@import "../../styles/fontsUrl.css";
 
 body {
   display: flex;
@@ -9,7 +9,7 @@ body {
 }
 
 article {
-  background-color: #04A777;
+  background-color: #04a777;
   padding: 30px 40px;
   width: 90%;
   border-radius: 20px;
@@ -17,11 +17,11 @@ article {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow:  5px 5px 28px #c7c7c7;
+  box-shadow: 5px 5px 28px #c7c7c7;
 }
 
 article h2 {
-  font-size: 1.6em
+  font-size: 1.6em;
 }
 
 section {
@@ -36,8 +36,9 @@ aside {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 22px 30px;
   border-radius: 20px;
-  box-shadow: 5px 5px 18px #d7d7d7,
-             -5px -5px 18px #ebebeb;
+  box-shadow:
+    5px 5px 18px #d7d7d7,
+    -5px -5px 18px #ebebeb;
 }
 
 aside h3 {
@@ -50,6 +51,3 @@ aside h3 {
     font-size: 1.4em;
   }
 }
-
-
-

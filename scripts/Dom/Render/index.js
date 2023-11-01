@@ -5,7 +5,7 @@ import { changeState } from "../Change/index.js";
 /**
  * Render the status of the section
  * @param {string} type - Type of the page [(Gratitude | Intention) | Checbox]
- * @param {number | null} userId 
+ * @param {number | null} userId
  * @returns {void}
  */
 export function renderStatus(type, userId = null) {
@@ -16,15 +16,17 @@ export function renderStatus(type, userId = null) {
     const listSelector = `#${type}-list li`;
     const countProp = `${type}Count`;
     checkedCount = document.querySelectorAll(listSelector).length;
-    totalCount = api().get("users").where({ id: userId }).first().response[countProp];
+    totalCount = api().get("users").where({ id: userId }).first().response[
+      countProp
+    ];
     okMessage = "Você registrou todos os itens";
   } else if (type === "checkbox") {
     elementSelector = ".programmed-actions > p";
     checkedCount = document.querySelectorAll(
-      'input[type="checkbox"]:checked'
+      'input[type="checkbox"]:checked',
     ).length;
     const checkboxes = document.querySelectorAll(
-      'input[type="checkbox"]'
+      'input[type="checkbox"]',
     ).length;
     totalCount = checkboxes;
     okMessage = "Você concluiu todas as atividades programadas";

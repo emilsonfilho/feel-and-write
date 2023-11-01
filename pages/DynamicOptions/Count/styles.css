@@ -1,5 +1,5 @@
-@import '../../../styles/fontsUrl.css';
-@import '../../../stles/initialConfig.css';
+@import "../../../styles/fontsUrl.css";
+@import "../../../stles/initialConfig.css";
 
 body {
   width: 100vw;
@@ -30,7 +30,7 @@ body .container {
 
 .title h2 {
   font-size: 3em;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   color: var(--burgundy);
 }

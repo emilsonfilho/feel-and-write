@@ -1,5 +1,5 @@
-@import 'fontsUrl.css';
-@import 'initialConfig.css';
+@import "fontsUrl.css";
+@import "initialConfig.css";
 
 /* Layout */
 body {
@@ -52,7 +52,7 @@ body .bottom-svg {
 
 /* Fontes */
 section.title h2 {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   font-size: 3em;
   text-align: center;

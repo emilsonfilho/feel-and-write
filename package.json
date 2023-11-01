@@ -1,0 +1,13 @@
+{
+  "name": "feel-and-write",
+  "version": "2.0.0",
+  "description": "<div class=\"img\">\r     <img src=\"assets/images/github/Capa - Sinta & Escreva.png\" alt=\"Logo do projeto\">\r </div>\r <h1 class=\"text-center\" id=\"title\">:sparkles: Feel & Write</h1>\r 🇧🇷 - <em>Escreva & Sinta</em> é, inicialmente, um projeto pessoal. Um aplicativo para ajudar pessoas que gostam de sentirem-se organizadas consigo mesmas e com o dia-a-dia delas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.{js,jsx,json,css,md}\""
+  },
+  "keywords": [],
+  "author": "emilsonfilho",
+  "license": "MIT"
+}

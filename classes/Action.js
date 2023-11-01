@@ -1,32 +1,32 @@
-import { Base } from './Base.js'
+import { Base } from "./Base.js";
 
 export class Action extends Base {
   _getScheduleId(type) {
-    let scheduleId = 0
-  
+    let scheduleId = 0;
+
     switch (true) {
-      case type === 'morning': 
-        scheduleId = 1
+      case type === "morning":
+        scheduleId = 1;
         break;
-      case type === 'afternoon':
-        scheduleId = 2
+      case type === "afternoon":
+        scheduleId = 2;
         break;
-      case type === 'night':
+      case type === "night":
         scheduleId = 3;
         break;
       default:
-        throw new Error('Tipo inválido')
+        throw new Error("Tipo inválido");
     }
-    
-    return scheduleId
+
+    return scheduleId;
   }
-  
+
   constructor(userId, type, value) {
-    super()
-    this.id = this._getUniqueId('actions')
-    this.userId = userId
-    this.scheduleId = this._getScheduleId(type)
-    this.dailyTask = value
-    this.lastOccurrence = ''
+    super();
+    this.id = this._getUniqueId("actions");
+    this.userId = userId;
+    this.scheduleId = this._getScheduleId(type);
+    this.dailyTask = value;
+    this.lastOccurrence = "";
   }
 }

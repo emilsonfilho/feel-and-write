@@ -72,8 +72,8 @@ function sendData(date, time, userId) {
   const { value } = textarea;
 
   if (!value) {
-    swal("Campo vazio!", "Por favor, insira um valor", "error")
-    throw new Error("Não é possível inserir um valor vazio!")
+    swal("Campo vazio!", "Por favor, insira um valor", "error");
+    throw new Error("Não é possível inserir um valor vazio!");
   }
 
   const register = new DayToDay(userId, value, time, date);

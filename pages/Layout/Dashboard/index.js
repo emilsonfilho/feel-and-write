@@ -1,13 +1,13 @@
-import { api } from '../../../database/api.js';
+import { api } from "../../../database/api.js";
 
-import { formatDate, sortByField } from '../../../scripts/Date/index.js';
-import { createElement } from '../../../scripts/Dom/Create/index.js';
-import { getCurrentPage } from '../../../scripts/Dom/CurrentPage/index.js'
-import { renderElements } from '../../../scripts/Dom/Render/index.js';
-import { selectElement } from '../../../scripts/Dom/Select/index.js';
-import { getSessionData } from '../../../scripts/Session/index.js';
+import { formatDate, sortByField } from "../../../scripts/Date/index.js";
+import { createElement } from "../../../scripts/Dom/Create/index.js";
+import { getCurrentPage } from "../../../scripts/Dom/CurrentPage/index.js";
+import { renderElements } from "../../../scripts/Dom/Render/index.js";
+import { selectElement } from "../../../scripts/Dom/Select/index.js";
+import { getSessionData } from "../../../scripts/Session/index.js";
 
-import { validateUser } from '../../../utils/validate.js';
+import { validateUser } from "../../../utils/validate.js";
 
 validateUser();
 const currentPage = getCurrentPage();
@@ -19,7 +19,7 @@ window.addEventListener("load", render);
  */
 function render() {
   try {
-    const userId = getSessionData('user');
+    const userId = getSessionData("user");
 
     setTypePage(userId);
   } catch (e) {
@@ -30,14 +30,14 @@ function render() {
 /**
  * Render the page according specific types
  * @param {string} type - Specifies which page is to be showed
- * @param {number} userId 
+ * @param {number} userId
  */
 function specificRender(type, userId) {
-  let { response } = api().get(type).where({ userId: userId })
-  const section = selectElement('section');
+  let { response } = api().get(type).where({ userId: userId });
+  const section = selectElement("section");
 
-  sortByField(response, 'date');
-  sortByField(response, 'time');
+  sortByField(response, "date");
+  sortByField(response, "time");
 
   renderObjects(response, section);
 }
@@ -48,19 +48,19 @@ function specificRender(type, userId) {
  * @param {Element} container - Element to the content be showed
  */
 function renderObjects(objects, container) {
-  container.innerHTML = '';
+  container.innerHTML = "";
   objects = groupObjectsByText(objects);
 
   renderElements(objects, ({ date, texts }) => {
-    const aside = createElement('aside');
-    const h3 = createElement('h3');
+    const aside = createElement("aside");
+    const h3 = createElement("h3");
 
     h3.textContent = formatDate(date);
 
     aside.appendChild(h3);
 
-    texts.forEach(text => {
-      const p = createElement('p');
+    texts.forEach((text) => {
+      const p = createElement("p");
       p.textContent = text;
       aside.appendChild(p);
     });
@@ -94,18 +94,18 @@ function groupObjectsByText(objects) {
 }
 
 /**
- * which page is to show 
- * @param {number} userId 
+ * which page is to show
+ * @param {number} userId
  */
 function setTypePage(userId) {
   switch (currentPage) {
-    case 'Gratitude':
-      specificRender('gratitudes', userId);
+    case "Gratitude":
+      specificRender("gratitudes", userId);
       break;
-    case 'Intention':
-      specificRender('intentions', userId);
+    case "Intention":
+      specificRender("intentions", userId);
       break;
     default:
-      throw new Error('Página desconhecida');
+      throw new Error("Página desconhecida");
   }
 }

@@ -11,7 +11,7 @@ export function getFormattedTime() {
 
 /**
  * Formats the time provided
- * @param {string} time 
+ * @param {string} time
  * @returns {string}
  */
 export const formatTime = (time) => time.replace(":", "h");

@@ -5,20 +5,20 @@ header {
   padding: 15px 35px;
   gap: 20px;
   width: 100vw;
-  box-shadow: 0px 12px 100px -34px rgba(0,0,0,0.2);
+  box-shadow: 0px 12px 100px -34px rgba(0, 0, 0, 0.2);
 }
 
 header img {
   width: 80px;
-  transition: all .1s ease-out;
+  transition: all 0.1s ease-out;
 }
 
 header h1 {
   font-size: 2em;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   color: #fff;
   font-weight: 900;
-  transition: font-size .1s ease-out;
+  transition: font-size 0.1s ease-out;
 }
 
 @media screen and (max-width: 518px) {

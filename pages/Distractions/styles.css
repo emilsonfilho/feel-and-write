@@ -11,7 +11,7 @@ aside {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 600;
 }
 
@@ -31,12 +31,12 @@ main form input[type="text"] {
 }
 
 main form input[type="text"]::placeholder {
-  color:rgb(173,173,173);
+  color: rgb(173, 173, 173);
 }
 
 main form input[type="button"] {
   padding: 10px 15px;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 ul {
@@ -51,7 +51,7 @@ ul div {
 }
 
 ul div li {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 ul div input {

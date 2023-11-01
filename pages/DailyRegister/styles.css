@@ -1,5 +1,5 @@
-@import '../../styles/initialConfig.css';
-@import '../../styles/fontsUrl.css';
+@import "../../styles/initialConfig.css";
+@import "../../styles/fontsUrl.css";
 
 body {
   background-color: #f7f7f7;
@@ -7,10 +7,10 @@ body {
 
 body > p {
   text-align: center;
-  border-bottom: 2px solid var(--pink-shock); 
+  border-bottom: 2px solid var(--pink-shock);
   font-weight: 300;
   padding: 35px;
-  transition: all .1s ease-out;
+  transition: all 0.1s ease-out;
 }
 
 main {
@@ -25,13 +25,14 @@ main > section {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow: 5px 5px 18px rgba(215,215,215,0.805),
-             -5px -5px 18px rgba(233,233,233,0.667);
+  box-shadow:
+    5px 5px 18px rgba(215, 215, 215, 0.805),
+    -5px -5px 18px rgba(233, 233, 233, 0.667);
 }
 
 .left {
   margin-right: auto;
-  
+
   padding: 35px 35px 35px 12px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -39,7 +40,7 @@ main > section {
 
 .right {
   margin-left: auto;
-  
+
   padding: 35px 12px 35px 35px;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;

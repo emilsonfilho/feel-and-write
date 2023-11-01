@@ -44,8 +44,8 @@ export function api() {
     function where(properties) {
       const response = table.filter((object) =>
         Object.entries(properties).every(
-          ([key, value]) => object[key] === value
-        )
+          ([key, value]) => object[key] === value,
+        ),
       );
 
       if (!response.length) {
@@ -91,7 +91,7 @@ export function api() {
       if (typeof data !== "object") {
         throw new Error(
           "Tipo de dados não correspondente ao exigido pela estruturação do banco de de dados: ",
-          typeof data
+          typeof data,
         );
       }
 

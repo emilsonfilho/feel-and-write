@@ -53,8 +53,8 @@ function sendData(userId) {
   const { value } = input;
 
   if (!value) {
-    swal("Campo vazio!", "Por favor, insira um valor", "error")
-    throw new Error("Não é possível inserir um valor vazio!")
+    swal("Campo vazio!", "Por favor, insira um valor", "error");
+    throw new Error("Não é possível inserir um valor vazio!");
   }
 
   const distraction = new Distraction(userId, value);

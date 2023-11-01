@@ -1,6 +1,6 @@
 /**
  * Find objects according an array
- * @param {Array} array 
+ * @param {Array} array
  * @param {string} propertyName - Usually the table name
  * @param {string | number | object | Array} propertyValue - Value in the table
  * @returns {Object[]}

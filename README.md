@@ -1,4 +1,3 @@
-
 <div class="img">
     <img src="assets/images/github/Capa - Sinta & Escreva.png" alt="Logo do projeto">
 </div>
@@ -51,9 +50,9 @@ Você encontrará uma aplicação prática desse projeto no seguinte link: [emil
 
 <h2 class="mt" id="technologies">👑 Tecnologias utilizadas</h2>
 
-* [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 🇧🇷 - O projeto tem uma limitação de tecnologias por parte de infraestrutura do programador. Fica a dica implementar tecnologias como SQL e React a esse projeto. Quem sabe um dia esse app possa virar um aplicativo móvel completamente adaptado aos usuários.
 
@@ -73,6 +72,7 @@ Você encontrará uma aplicação prática desse projeto no seguinte link: [emil
 <img style="border-radius: 100%; width: 150px" src="https://avatars.githubusercontent.com/u/92304613?s=96&v=4">
 
 <strong>[EmilsonFilho](https://github.com/emilsonfilho)</strong>
+
 </div>
 
 <div style="text-align: center; padding: 15px 0px;"><p>Feito com 💜 por <a href="https://github.com/emilsonfilho"><strong>Emilson Filho</strong></a></p></div>

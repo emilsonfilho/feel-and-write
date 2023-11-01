@@ -33,13 +33,12 @@ function sendData() {
       data.name,
       pin,
       data.gratitudeCount,
-      data.intentionCount
+      data.intentionCount,
     );
 
     const database = JSON.parse(
-      JSON.stringify(api().response) || JSON.stringify(initialDatabase)
+      JSON.stringify(api().response) || JSON.stringify(initialDatabase),
     );
-
 
     database.users.push(user);
 

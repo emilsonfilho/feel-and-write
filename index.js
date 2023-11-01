@@ -24,7 +24,7 @@ async function login() {
         swal(
           "Senha incorreta!",
           "O campo de senha não foi preenchido",
-          "error"
+          "error",
         );
         throw new Error("O campo de senha não foi preenchido.");
       })();

@@ -17,7 +17,7 @@ export function addCheckbox(
   query,
   name,
   { id, dailyTask, lastOccurrence },
-  today
+  today,
 ) {
   const container = selectElement(query);
   const div = createDivWithClass("wrapper");
@@ -32,7 +32,7 @@ export function addCheckbox(
 
 /**
  * Adds a List Element in the screen
- * @param {string} query 
+ * @param {string} query
  * @param {object} param1 - An object with the text of the Li
  */
 export function addLi(query, { text }) {
@@ -44,7 +44,7 @@ export function addLi(query, { text }) {
 
 /**
  * Add Events to elements
- * @param {string} query 
+ * @param {string} query
  * @param {string} eventType - Event to be added
  * @param {Function} func - An function to the AddEventListener
  */
