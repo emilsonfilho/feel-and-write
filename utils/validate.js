@@ -42,9 +42,11 @@ export function validatePassword(pass1, pass2) {
  */
 export function validatePin(pin) {
   if (!pin) {
+    swal("Pin inválido", "O campo de pin não pode ser vazio", "error")
     throw new Error("Não pode ser vazio!");
   }
   if (pin.length !== 4) {
+    swal("Pin inválido", "Seu pin não pode conter menos de 4 dígitos!", "error")
     throw new Error("O código de verificação deve conter 4 dígitos!");
   }
 }
