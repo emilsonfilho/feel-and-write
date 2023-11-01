@@ -53,7 +53,7 @@ body .container {
 
 .content input[type="number"] {
   padding: 15px;
-  max-width: 60px;
+  max-width: 80px;
   border: 2px solid var(--burgundy);
   border-radius: 25px;
   outline: none;
