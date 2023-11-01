@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8"/> 
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recuperação de Senha</title>
     <link rel="stylesheet" href="../../Register/styles.css" />
@@ -10,26 +10,49 @@
   </head>
   <body>
     <section class="container">
-      <img src="../../../images/password.png" alt="Imagem vetorizada de um escudo com sinais de: menor que, barra e maior que." />
+      <img
+        src="../../../images/password.png"
+        alt="Imagem vetorizada de um escudo com sinais de: menor que, barra e maior que."
+      />
       <h1>
         <span class="title-borgonha">Recuperação de</span>
-        <br>
+        <br />
         <span class="title-pink">Senha</span>
       </h1>
       <form class="login-form">
         <div class="form-control">
-          <label for="email" style="color: black;">E-mail</label>
+          <label for="email" style="color: black">E-mail</label>
           <input type="email" name="email" id="email" disabled />
         </div>
         <div class="form-control">
           <label for="newPassword">Sua nova senha</label>
-          <input type="password" name="newPassword" id="newPassword" required minlength="8" pattern=".{8,}" />
+          <input
+            type="password"
+            name="newPassword"
+            id="newPassword"
+            required
+            minlength="8"
+            pattern=".{8,}"
+          />
         </div>
         <div class="form-control">
           <label for="confirmPassword">Confirmar nova senha</label>
-          <input type="password" name="confirmPassword" id="confirmPassword" required minlength="8" pattern=".{8,}" />
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            required
+            minlength="8"
+            pattern=".{8,}"
+          />
         </div>
-        <input class="button" type="button" name="alt" id="alt" value="Alterar" />
+        <input
+          class="button"
+          type="button"
+          name="alt"
+          id="alt"
+          value="Alterar"
+        />
       </form>
     </section>
     <script type="module" src="index.js"></script>

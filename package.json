@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"**/*.{js,jsx,json,css,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,json,css,md,html}\""
   },
   "keywords": [],
   "author": "emilsonfilho",
