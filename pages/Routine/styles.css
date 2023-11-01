@@ -110,3 +110,13 @@ ul div {
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 494px) {
+  .content p {
+    font-size: 14px;
+  }
+
+  aside > section.title h3 {
+    font-size: 1.2em;
+  }
+}
