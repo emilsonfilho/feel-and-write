@@ -38,8 +38,7 @@ main > section {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow:
-    5px 5px 18px rgba(215, 215, 215, 0.805),
+  box-shadow: 5px 5px 18px rgba(215, 215, 215, 0.805),
     -5px -5px 18px rgba(233, 233, 233, 0.667);
 }
 
