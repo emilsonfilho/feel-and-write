@@ -5,19 +5,32 @@ body {
   background-color: #f7f7f7;
 }
 
-body > p {
-  text-align: center;
+body > div {
   border-bottom: 2px solid var(--pink-shock);
   font-weight: 300;
   padding: 35px;
   transition: all 0.1s ease-out;
+  text-align: right;
+}
+
+body > div p {
+  text-align: left;
+}
+
+body > div button {
+  color: var(--espresso-brown);
+  padding: 5px 15px;
+  background: transparent;
+  border: 1px solid var(--espresso-brown);
+  border-radius: 7px;
+  margin-top: 10px;
 }
 
 main {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin: 23px 0px;
+  margin: 23px 0px 150px 0px;
 }
 
 main > section {
@@ -25,8 +38,7 @@ main > section {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow:
-    5px 5px 18px rgba(215, 215, 215, 0.805),
+  box-shadow: 5px 5px 18px rgba(215, 215, 215, 0.805),
     -5px -5px 18px rgba(233, 233, 233, 0.667);
 }
 
@@ -56,8 +68,12 @@ section p {
   justify-content: center;
 }
 
+form textarea {
+  border: 1px solid darkgray;
+}
+
 @media screen and (max-width: 518px) {
-  body > p {
+  body > div > p {
     font-size: 14px;
   }
 }

@@ -36,14 +36,16 @@ aside {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 22px 30px;
   border-radius: 20px;
-  box-shadow:
-    5px 5px 18px #d7d7d7,
-    -5px -5px 18px #ebebeb;
+  box-shadow: 5px 5px 18px #d7d7d7, -5px -5px 18px #ebebeb;
 }
 
 aside h3 {
   font-size: 1.5em;
   margin-bottom: 12px;
+}
+
+form textarea {
+  border: 1px solid var(--green-water);
 }
 
 @media screen and (max-width: 512px) {

@@ -6,7 +6,6 @@ form {
 }
 
 form textarea {
-  border: 1px solid var(--green-water);
   padding: 5px;
 }
 
