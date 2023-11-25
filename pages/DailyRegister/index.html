@@ -8,9 +8,29 @@
     <link rel="stylesheet" href="../Layout/Header/styles.css" />
     <link rel="stylesheet" href="../Layout/Footer/styles.css" />
     <link rel="stylesheet" href="../Layout/Form/styles.css" />
-    <link rel="stylesheet" href="../Layout//SendButton/styles.css" />
+    <link rel="stylesheet" href="../Layout/SendButton/styles.css" />
+    <link rel="stylesheet" href="../Layout/Modal/styles.css">
+    <script src="https://kit.fontawesome.com/2d343474f0.js" crossorigin="anonymous"></script>
+    <script src="../Layout/Modal/index.js"></script>
+    <script>
+      activeModal('openModal')
+    </script>
   </head>
   <body>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-title">
+          <h2>Insira um novo registro</h2>
+          <a class="close">&times;</a>
+        </div>
+        <div class="divider"></div>
+        <form>
+          <label for="record">Seu registro aqui:</label>
+          <textarea name="record" id="record" cols=15" rows="15"></textarea>
+          <input type="button" value="Enviar" name="send" id="send" onclick="modal.style.display = 'none'">
+        </form>
+      </div>
+    </div>
     <header>
       <img
         src="../../images/write.png"
@@ -18,21 +38,18 @@
       />
       <h1>Registro Diário</h1>
     </header>
-    <p>
-      Simples. Tem dias que não estamos nos sentindo muito bem emocionalmente e,
-      por mais que tenhamos a companhia de pessoas extremamente confiáveis, não
-      conseguimos expressar o que sentimos.<br />E sabe: escrever é bom para
-      isso!<br />Não sinta-se preso(@), escreva tudo que quiser aqui, por mais
-      que, na sua cabeça, não vá fazer sentido (não precisa!)
-    </p>
-    <main></main>
-    <div class="form">
-      <form>
-        <label for="record">Insira um novo registro</label>
-        <textarea name="record" id="record" rows="15" cols="40"></textarea>
-        <input type="button" name="send" id="send" value="Enviar" />
-      </form>
+    <div>
+      <p>
+        Simples. Tem dias que não estamos nos sentindo muito bem emocionalmente e,
+        por mais que tenhamos a companhia de pessoas extremamente confiáveis, não
+        conseguimos expressar o que sentimos.<br />E sabe: escrever é bom para
+        isso!<br />Não sinta-se preso(@), escreva tudo que quiser aqui, por mais
+        que, na sua cabeça, não vá fazer sentido (não precisa!)
+      </p>
+      <br>
+      <button id="openModal" onclick="animate(document.querySelector('.modal'))"><i class="fa-solid fa-plus"></i>  Novo</button>
     </div>
+    <main></main>
     <footer>
       <a href="../DreamDiary/index.html">
         <nav class="item">
